@@ -28,7 +28,9 @@ function getGe() {
         if(game.Ge[i][5]) s++;
     }
     for(i = 0;i < s;i++) {
-        game.Ge[i][3] = EN.pow(2,EN.floor(EN.div(game.Ge[i][2],new EN(10))));
+        let base = EN.floor(EN.div(game.Ge[i][2],new EN(10)));
+        game.Ge[i][3] = EN.add(EN.mul(2,base),1);
+        //game.Ge[i][3] = EN.pow(2,base);
         if(i == 0) game.sus = game.sus.add(game.Ge[i][2].mul(game.Ge[i][3]));
         else game.Ge[i-1][2] = game.Ge[i-1][2].add(game.Ge[i][2].mul(game.Ge[i][3]));
     }
