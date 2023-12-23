@@ -1,3 +1,29 @@
+table {
+    text-align:center;
+    }
+.nu {
+    position: relative;
+    background-color:#FF6A6A;
+    border-style: solid;
+    border-color: #FF6A6A;
+    border-radius:10px;
+}
+.nuu{
+    position: relative;
+    background-color:#98FB98;
+    border-style: solid;
+    border-color: #98FB98;
+    border-radius:10px;
+}
+.nub {
+    border-color: lightgrey;
+    border-width: 5px;
+    border-style: solid;
+    border-radius: 5px;
+}
+.nub:hover {
+    transform: scale(1.05,1.05);
+}
 .sus {
     color:red;
     font-size: 50px;
@@ -21,7 +47,7 @@
     position: absolute;
 }
 .chs {
-    width: 130px;
+    width: 170px;
     height: 40px;
     justify-content: center;
     align-items: center;
@@ -29,6 +55,18 @@
     border-width: 5px;
     border-style: solid;
     border-color: orangered;
+    align-self: center;
+    color: white;
+}
+.chs1 {
+    width: 130px;
+    height: 40px;
+    justify-content: center;
+    align-items: center;
+    background-color: black;
+    border-width: 5px;
+    border-style: solid;
+    border-color: #ff4f00;
     align-self: center;
     color: white;
 }
@@ -79,4 +117,17 @@
 }
 .gb:hover {
     transform: scale(1.05,1.05);
+}
+.se {
+    width: 170px;
+    height: 130px;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+    border-style: solid;
+    border-color: white;
+    border-radius: 5px;
+    align-self: center;
+    color: black;
+    position: relative;
 }
