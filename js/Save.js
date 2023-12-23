@@ -12,11 +12,18 @@ function load(){
     fixN()
 }
 function fixN(){
-    for(let i = 0;i < game.Ge.length;i++) {
+    let i;
+    let j;
+    for(i = 0;i < game.Ge.length;i++) {
         game.Ge[i][1] = new EN(game.Ge[i][1]);
         game.Ge[i][2] = new EN(game.Ge[i][2]);
         game.Ge[i][3] = new EN(game.Ge[i][3]);
         game.Ge[i][4] = new EN(game.Ge[i][4]);
+    }
+    for(i = 0;i < game.u.length;i++) {
+        for(j = 0;j < game.u[i].length / 2;j++) {
+            game.u[i][j*2] = new EN(game.u[i][j*2]);
+        }
     }
     game.sus = new EN(game.sus);
 }

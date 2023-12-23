@@ -1,12 +1,16 @@
 function buyGe(n = 0) {
     let x = document.getElementById("g"+(n+1)+"b");
-    if(!x.disabled) {game.sus = game.sus.sub(game.Ge[n][4]);game.Ge[n][1] = game.Ge[n][1].add(new EN(1));game.Ge[n][2] = game.Ge[n][2].add(new EN(1))};
+    if(!x.disabled) {
+        if(!hasUp(0,2)) game.sus = game.sus.sub(game.Ge[n][4]);
+        game.Ge[n][1] = game.Ge[n][1].add(new EN(1));
+        game.Ge[n][2] = game.Ge[n][2].add(new EN(1));
+    }
 }
 function buyMaxGe(n = 0) {
     let x = document.getElementById("g"+(n+1)+"b");
     if(!x.disabled) {
         let time = EN.floor(EN.div(game.sus,game.Ge[n][4]));
-        game.sus = game.sus.sub(EN.mul(game.Ge[n][4],time));
+        if(!hasUp(0,2)) game.sus = game.sus.sub(EN.mul(game.Ge[n][4],time));
         game.Ge[n][1] = game.Ge[n][1].add(time);
         game.Ge[n][2] = game.Ge[n][2].add(time);
     }
