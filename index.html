@@ -14,107 +14,166 @@
         }
     </style>
     <link rel="stylesheet" type="text/css" href="css/fir.css">
+    <link rel="stylesheet" type="text/css" href="css/notify.css">
     <script type="text/javascript" src="js/ExpantaNum.js"></script>
     <script type="text/javascript" src="js/Dom.js"></script>
     <script type="text/javascript" src="js/Function.js"></script>
     <script type="text/javascript" src="js/Game.js"></script>
     <script type="text/javascript" src="js/Save.js"></script>
+    <script type="text/javascript" src="js/Notify.js"></script>
+    <script type="text/javascript" src="js/glitch.js"></script>
     <body onload="sg()">
-        <div>
+        
+        <header>
             <div id="new" class="news">
                 <p id="newtext" class="newstext">{news}</p>
             </div>
-        </div>
-        <button id="gbm" class="gb" align="left" style="top: 75px;right: 20px;" onclick="buyMaxAll(0)">最大化</button>
-        <h1 id="showp" align="center">你有 <span class = "sus">0</span> 嫌疑</h1>
-        <!--mp = 主页面/main page-->
-        <div id="buttons" align="center">
-            <button type="button" class="chs" onclick="pageshow('mp');subshow('ng')">生成器</button>
-            <button type="button" class="chs" onclick="pageshow('up');subshow('nu')">升级</button>
-            <button type="button" class="chs" onclick="pageshow('sp');subshow('save')">设置</button>
-        </div>
-        <div id="mp" class="chosen" align="center">
-            <div id="subbuttons" align="center" style="position: relative;">
-                <button type="button" class="chs1" onclick="subshow('ng')" style="position: relative;top: 15px">普通生成器</button>
-            </div>
-            <div id="ng">
-                <div id="g1" class="ge">
-                    <p id="g1n" class="gn" align="left">{name}</p>
-                    <p id="g1N" class="gN" align="left">{num}</p>
-                    <p id="g1t" class="gt" align="left">{times}</p>
-                    <p id="g1c" class="gc" align="left">{cost}</p>
-                    <button id="g1b" class="gb" align="left" style="top: 5px;right: 160px;" onclick="buyGe(0)">购买1</button>
-                    <button id="g1bm" class="gb" align="left" style="top: 5px;right: 20px;" onclick="buyMaxGe(0)">购买最大</button>
+            <h1 align="center">你有 <span class = "sus" id="showp">0</span> 嫌疑</h1>
+        </header>
+        <div class="ui-container">
+            <div class="c-game-ui">
+
+                <!--mp = 主页面/main page-->
+                <div id="buttons" align="center">
+                    <button type="button" class="chs" onclick="pageshow('mp');subshow('ng')">生成器</button>
+                    <button type="button" class="chs" onclick="pageshow('up');subshow('nu')">升级</button>
+                    <button type="button" class="chs" onclick="pageshow('ap');subshow('na')">成就</button>
+                    <button type="button" class="chs" onclick="pageshow('sp');subshow('save')">设置</button>
                 </div>
-                <div id="g2" class="ge">
-                    <p id="g2n" class="gn" align="left">{name}</p>
-                    <p id="g2N" class="gN" align="left">{num}</p>
-                    <p id="g2t" class="gt" align="left">{times}</p>
-                    <p id="g2c" class="gc" align="left">{cost}</p>
-                    <button id="g2b" class="gb" align="left" style="top: 5px;right: 160px;" onclick="buyGe(1)">购买1</button>
-                    <button id="g2bm" class="gb" align="left" style="top: 5px;right: 20px;" onclick="buyMaxGe(1)">购买最大</button>
+                <div id="mp" class="chosen" align="center">
+                <div id="subbuttons" align="center" style="position: relative;">
+                    <button type="button" class="chs1" onclick="subshow('ng')" style="position: relative;top: 15px">普通生成器</button>
+                    <button type="button" class="chs1" onclick="subshow('ag')" style="position: relative;top: 15px">自动购买器生成器</button>
                 </div>
-                <div id="g3" class="ge">
-                    <p id="g3n" class="gn" align="left">{name}</p>
-                    <p id="g3N" class="gN" align="left">{num}</p>
-                    <p id="g3t" class="gt" align="left">{times}</p>
-                    <p id="g3c" class="gc" align="left">{cost}</p>
-                    <button id="g3b" class="gb" align="left" style="top: 5px;right: 160px;" onclick="buyGe(2)">购买1</button>
-                    <button id="g3bm" class="gb" align="left" style="top: 5px;right: 20px;" onclick="buyMaxGe(2)">购买最大</button>
+
+                <div id="ng" align="center" style="position: relative;" class="chosen1">
+                    <div>
+                        <button id="gbm" class="gb unlock" style="left: 46.7%;top: 20px;" onclick="buyMaxAll()">最大化</button>
+                    </div>
+                    <div id="g1" class="ge" style="top: 100px;">
+                        <p id="g1n" class="gn" align="left">{name}</p>
+                        <p id="g1N" class="gN" align="left">{num}</p>
+                        <p id="g1t" class="gt" align="left">{times}</p>
+                        <p id="g1c" class="gc" align="left">{cost}</p>
+                        <button id="g1b" class="gb" align="left" style="top: 5px;right: 160px;" onclick="buyGe(0)">购买1</button>
+                        <button id="g1bm" class="gb" align="left" style="top: 5px;right: 20px;" onclick="buyMaxGe(0)">购买最大</button>
+                    </div>
+                    <div id="g2" class="ge" style="top: 110px;">
+                        <p id="g2n" class="gn" align="left">{name}</p>
+                        <p id="g2N" class="gN" align="left">{num}</p>
+                        <p id="g2t" class="gt" align="left">{times}</p>
+                        <p id="g2c" class="gc" align="left">{cost}</p>
+                        <button id="g2b" class="gb" align="left" style="top: 5px;right: 160px;" onclick="buyGe(1)">购买1</button>
+                        <button id="g2bm" class="gb" align="left" style="top: 5px;right: 20px;" onclick="buyMaxGe(1)">购买最大</button>
+                    </div>
+                    <div id="g3" class="ge" style="top: 120px;">
+                        <p id="g3n" class="gn" align="left">{name}</p>
+                        <p id="g3N" class="gN" align="left">{num}</p>
+                        <p id="g3t" class="gt" align="left">{times}</p>
+                        <p id="g3c" class="gc" align="left">{cost}</p>
+                        <button id="g3b" class="gb" align="left" style="top: 5px;right: 160px;" onclick="buyGe(2)">购买1</button>
+                        <button id="g3bm" class="gb" align="left" style="top: 5px;right: 20px;" onclick="buyMaxGe(2)">购买最大</button>
+                    </div>
+                    <div id="g4" class="ge" style="top: 130px;">
+                        <p id="g4n" class="gn" align="left">{name}</p>
+                        <p id="g4N" class="gN" align="left">{num}</p>
+                        <p id="g4t" class="gt" align="left">{times}</p>
+                        <p id="g4c" class="gc" align="left">{cost}</p>
+                        <button id="g4b" class="gb" align="left" style="top: 5px;right: 160px;" onclick="buyGe(3)">购买1</button>
+                        <button id="g4bm" class="gb" align="left" style="top: 5px;right: 20px;" onclick="buyMaxGe(3)">购买最大</button>
+                    </div>
                 </div>
-                <div id="g4" class="ge">
-                    <p id="g4n" class="gn" align="left">{name}</p>
-                    <p id="g4N" class="gN" align="left">{num}</p>
-                    <p id="g4t" class="gt" align="left">{times}</p>
-                    <p id="g4c" class="gc" align="left">{cost}</p>
-                    <button id="g4b" class="gb" align="left" style="top: 5px;right: 160px;" onclick="buyGe(3)">购买1</button>
-                    <button id="g4bm" class="gb" align="left" style="top: 5px;right: 20px;" onclick="buyMaxGe(3)">购买最大</button>
+
+                <div id="ag" align="center" style="position: relative;" class="chosen1">
+                    
+                </div>
+                </div>
+                <!--up = 升级页面/upgrade page-->
+                <div id="up" class="chosen" align="center">
+                <div id="subbuttons" align="center" style="position: relative;">
+                    <button type="button" class="chs1" onclick="subshow('nu')" style="position: relative;top: 15px">普通升级</button>
+                </div>
+                <div id="nu" class="chosen1">
+                    <table align="center">
+                        <tbody>
+                            <tr>
+                                <td id="nu11" class="nu" style="top: 30px;">
+                                    把乘数变为1.0001^base<br>
+                                    <button id="nub11" class="nub" onclick="buyUp(0,0)">{cost}嫌疑</button>
+                                </td>
+                                <td id="nu12" class="nu" style="top: 30px;">
+                                    自动最大化<br>
+                                    <button id="nub12" class="nub" onclick="buyUp(0,1)">{cost}嫌疑</button>
+                                </td>
+                                <td id="nu13" class="nu" style="top: 30px;">
+                                    购买生成器无消耗<br>
+                                    <button id="nub13" class="nub" onclick="buyUp(0,2)">{cost}嫌疑</button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                </div>
+                <!--ap = 成就页面/achivment page-->
+                <div id="ap" class="chosen" align="center">
+                <div id="subbuttons" align="center" style="position: relative;">
+                    <button type="button" class="chs1" onclick="subshow('na')" style="position: relative;top: 15px;">成就</button>
+                    <button type="button" class="chs1 glitch" onclick="subshow('sa')" style="position: relative;top: 15px;border-color: blueviolet;">隐藏成就</button>
+                </div>
+
+                <div id="na" align="center" style="position: relative;">
+                    <table align="center">
+                        <tbody>
+                            <tr>
+                                <td id="na11" class="na lock" style="top: 30px;">
+                                    {text}
+                                </td>
+                                <td id="na12" class="na lock" style="top: 30px;">
+                                    {text}
+                                </td>
+                                <td id="na13" class="na lock" style="top: 30px;">
+                                    {text}
+                                </td>
+                                <td id="na14" class="na lock" style="top: 30px;">
+                                    {text}
+                                </td>
+                                <td id="na15" class="na lock" style="top: 30px;">
+                                    {text}
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div id="sa" align="center" style="position: relative;">
+
+                </div>
+                </div>
+                <!--sp = 设置页面/setting page-->
+                <div id="sp" class="chosen" align="center">
+                <div id="subbuttons" align="center" style="position: relative;">
+                    <button type="button" class="chs1" onclick="subshow('save')" style="position: relative;top: 15px">存档</button>
+                    <button type="button" class="chs1" onclick="subshow('changelog')" style="position: relative;top: 15px">更新内容</button>
+                </div>
+                <div id="changelog" class="chosen1">
+                    <h1>更新内容</h1> 
+                    <p id="change">{changelog}</p>
+                </div>
+                <div id="save" class="chosen1" style="position: relative;" align="center">
+                    <button class="se" style="top: 30px;" onclick="save()">存档</button>
+                    <button class="se" style="top: 30px;" onclick="load()">读档</button>
+                    <button class="se" style="top: 30px;" onclick="exportgame()">导出存档</button>
+                    <button class="se" style="top: 30px;" onclick="importgame()">导入存档</button>
+                    <button class="se" style="top: 30px;background-color: red;border-color: red;" onclick="hardreset()">重置</button>
+                </div>
+                </div>
+            </div>
+            <div class="c-game-ui--fixed">
+                <div id="notification-container" class="l-notification-container">
                 </div>
             </div>
         </div>
-        <!--up = 升级页面/upgrade page-->
-        <div id="up" class="chosen" align="center">
-            <div id="subbuttons" align="center" style="position: relative;">
-                <button type="button" class="chs1" onclick="subshow('nu')" style="position: relative;top: 15px">普通升级</button>
-            </div>
-            <div id="nu">
-                <table align="center">
-                    <tbody>
-                        <tr>
-                            <td id="nu11" class="nu" style="top: 30px;">
-                                把乘数变为1.0001^base<br>
-                                <button id="nub11" class="nub" onclick="buyUp(0,0)">{cost}嫌疑</button>
-                            </td>
-                            <td id="nu12" class="nu" style="top: 30px;">
-                                自动最大化<br>
-                                <button id="nub12" class="nub" onclick="buyUp(0,1)">{cost}嫌疑</button>
-                            </td>
-                            <td id="nu13" class="nu" style="top: 30px;">
-                                购买生成器无消耗<br>
-                                <button id="nub13" class="nub" onclick="buyUp(0,2)">{cost}嫌疑</button>
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-        </div>
-        <!--sp = 设置页面/setting page-->
-        <div id="sp" class="chosen" align="center">
-            <div id="subbuttons" align="center" style="position: relative;">
-                <button type="button" class="chs1" onclick="subshow('save')" style="position: relative;top: 15px">存档</button>
-                <button type="button" class="chs1" onclick="subshow('changelog')" style="position: relative;top: 15px">更新内容</button>
-            </div>
-            <div id="changelog" class="chosen1">
-                <h1>更新内容</h1> 
-                <p id="change">{changelog}</p>
-            </div>
-            <div id="save" class="chosen1" style="position: relative;" align="center">
-                <button class="se" style="top: 30px;" onclick="save()">存档</button>
-                <button class="se" style="top: 30px;" onclick="load()">读档</button>
-                <button class="se" style="top: 30px;" onclick="exportgame()">导出存档</button>
-                <button class="se" style="top: 30px;" onclick="importgame()">导入存档</button>
-                <button class="se" style="top: 30px;background-color: red;border-color: red;" onclick="hardreset()">重置</button>
-            </div>
-        </div>
+        <!-- <button id="gbm" class="gb" align="left" style="top: 75px;right: 20px;" onclick="buyMaxAll(0)">最大化</button> -->
+        
+        
     </body>
 </html>

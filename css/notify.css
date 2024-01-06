@@ -1,0 +1,73 @@
+.l-notification-container {
+    display: flex;
+    flex-direction: column-reverse;
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: 1000;
+    align-items: flex-end;
+    margin-top: 0.5rem;
+    margin-right: 1rem;
+    pointer-events: auto;
+}
+.o-notification {
+    white-space: nowrap;
+    font-family: Typewriter, serif;
+    font-size: 1.3rem;
+    font-weight: bold;
+    color: black;
+    background-color: white;
+    border: 0.1rem solid;
+    margin-top: 0.3rem;
+    padding: 0.8rem 1.5rem;
+    cursor: pointer;
+  }
+  
+  .o-notification--success {
+    background-color: #dbd800;
+    border-color: #bab700;
+  }
+  
+  .o-notification--error {
+    background-color: #ffaa22;
+    border-color: #553300;
+  }
+  
+  .o-notification--info {
+    background-color: #48c0e8;
+    border-color: #4980cc;
+  }
+  
+  .a-notification--enter {
+    animation: a-notification--enter 0.5s ease-out;
+    animation-fill-mode: both;
+  }
+  
+  @keyframes a-notification--enter {
+    0% { transform: translateX(125%); }
+    50% { transform: translateX(-2rem); }
+    75% { transform: translateX(1rem); }
+    100% { transform: translateX(0); }
+  }
+  
+  .a-notification--leave {
+    transform: translateX(125%);
+    transition: transform 0.5s ease-in;
+  }
+  
+  .l-notification-icon {
+    position: absolute;
+    top: -0.1rem;
+    right: -0.1rem;
+    z-index: 5;
+    font-size: 1.5rem;
+    color: var(--color-notification);
+    text-shadow: -0.2rem 0.2rem 0.5rem black;
+    animation: a-notification-glow 2s infinite;
+  }
+  
+  @keyframes a-notification-glow {
+    0% { filter: brightness(70%); }
+    50% { filter: brightness(100%); }
+    100% { filter: brightness(70%); }
+  }

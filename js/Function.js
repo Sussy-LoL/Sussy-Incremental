@@ -39,6 +39,9 @@ function getGe() {
         if(i == 0) game.sus = game.sus.add(game.Ge[i][2].mul(game.Ge[i][3]));
         else game.Ge[i-1][2] = game.Ge[i-1][2].add(game.Ge[i][2].mul(game.Ge[i][3]));
     }
+    if(hasUp(0,1)) {
+        buyMaxAll();
+    }
 }
 function buyUp(row = 0,n = 0) {
     let l = (n*2)+1;
@@ -53,11 +56,17 @@ function buyUp(row = 0,n = 0) {
 function hasUp(row = 0,n = 0) {
     return game.u[row][(n*2)+1];
 }
-function autoGe() {
-    setInterval("buyMaxAll()",25);
+function checkAchivment() {
+    if(game.sus.gte(0) && !hasAchivment(0,0)) addAchivment(0,0);
+    if(game.sus.gte("1e5000") && !hasAchivment(0,1)) addAchivment(0,1);
+    if(hasUp(0,0) && !hasAchivment(0,2)) addAchivment(0,2);
+    if(hasUp(0,1) && !hasAchivment(0,3)) addAchivment(0,3);
+    if(hasUp(0,2) && !hasAchivment(0,4)) addAchivment(0,4);
 }
-var autoB14;
-function checkAB() {
-    if(hasUp(0,1) && autoB14 == undefined) autoB14 = autoGe();
-    else if(!hasUp(0,1)) autoB14 = undefined; 
+function addAchivment(row = 0,n = 0) {
+    notify.success("达成成就: " + game.achivment.normal[row][(n*2)],1000);
+    game.achivment.normal[row][(n*2)+1] = true;
+}
+function hasAchivment(row = 0,n = 0) {
+    return game.achivment.normal[row][(n*2)+1];
 }

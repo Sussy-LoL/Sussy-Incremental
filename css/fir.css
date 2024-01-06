@@ -1,18 +1,30 @@
+:root {
+    --obg: #98FB98;
+    --obog: #00FF7F;
+    --nobg: #FF6A6A;
+    --nobog: #FF0000;
+}
+
 table {
     text-align:center;
-    }
+}
+
+.lock {
+    background-color:var(--nobg);
+    border-color: var(--nobog);
+}
+.unlock {
+    background-Color:var(--obg);
+    border-Color: var(--obog);
+
+}
+.na {
+    position: relative;
+    height: 50px;
+}
 .nu {
     position: relative;
-    background-color:#FF6A6A;
     border-style: solid;
-    border-color: #FF6A6A;
-    border-radius:10px;
-}
-.nuu{
-    position: relative;
-    background-color:#98FB98;
-    border-style: solid;
-    border-color: #98FB98;
     border-radius:10px;
 }
 .nub {
@@ -20,6 +32,7 @@ table {
     border-width: 5px;
     border-style: solid;
     border-radius: 5px;
+    transition: ease-out 150ms;
 }
 .nub:hover {
     transform: scale(1.05,1.05);
@@ -52,7 +65,8 @@ table {
     justify-content: center;
     align-items: center;
     background-color: black;
-    border-width: 5px;
+    border-width: 3px;
+    border-radius: 5px;
     border-style: solid;
     border-color: orangered;
     align-self: center;
@@ -64,7 +78,8 @@ table {
     justify-content: center;
     align-items: center;
     background-color: black;
-    border-width: 5px;
+    border-radius: 5px;
+    border-width: 3px;
     border-style: solid;
     border-color: #ff4f00;
     align-self: center;
@@ -77,6 +92,7 @@ table {
     height: 80px;
     background-color: white;
     border-width: 5px;
+    border-radius: 5px;
     border-style: solid;
     border-color: gray;
     
@@ -110,10 +126,10 @@ table {
     position: absolute;
     width: 120px;
     height: 70px;
-    background-color:#FF6A6A;
-    border-color: #FF0000;
     border-width: 5px;
+    border-radius: 5px;
     border-style: solid;
+    transition: ease-out 150ms;
 }
 .gb:hover {
     transform: scale(1.05,1.05);
@@ -130,4 +146,26 @@ table {
     align-self: center;
     color: black;
     position: relative;
+}
+.glitch {
+    color: red;
+}
+.c-game-ui {
+    overflow-x: hidden;
+    overflow-y: auto;
+    width: 100%;
+    /* stylelint-disable-next-line unit-allowed-list */
+    height: 100vh;
+    position: fixed;
+}
+.c-game-ui--fixed {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 5;
+    justify-content: center;
+    pointer-events: none
 }

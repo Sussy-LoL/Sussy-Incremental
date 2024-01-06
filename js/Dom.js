@@ -5,12 +5,17 @@ var texts = [
     "你说得对,但是Sussy Incremental是一款由Sussy lol开发的增量游戏",
     "我需要一个新闻生成器!",
     "新闻，啊！新闻！",
-    "<a href='https://www.bilibili.com/video/BV1GJ411x7h7'>点击这里</a>"
+    "<a href='https://www.bilibili.com/video/BV1GJ411x7h7'>点击此处以增加114514嫌疑</a>"
 ]
 function updateDoc() {
-    document.getElementById("showp").innerHTML = "你有 <span class = \"sus\">" + game.sus.toString() + "</span> 嫌疑";
+    document.getElementById("showp").innerText = game.sus.toString();
     updateGe();
     updateUp();
+    updateAc();
+}
+function switchLock(ele = Element,c = Boolean) {
+    ele.classList.add(c?"unlock":"lock");
+    ele.classList.remove(c?"lock":"unlock");
 }
 function updateGe() {
     let i;
@@ -25,11 +30,10 @@ function updateGe() {
         document.getElementById("g"+(i+1)+"t").innerText = game.Ge[i][3].toString() + "x";
         let x = document.getElementById("g"+(i+1)+"b");
         let y = document.getElementById("g"+(i+1)+"bm");
-        let m = document.getElementById("gbm");
         if(game.sus.gte(game.Ge[i][4])) {x.disabled = false;y.disabled = false;}
         else {x.disabled = true;y.disabled = true;}
-        if(!x.disabled) {x.style.backgroundColor="#98FB98";x.style.borderColor="#00FF7F";y.style.backgroundColor="#98FB98";y.style.borderColor="#00FF7F";m.style.backgroundColor="#98FB98";m.style.borderColor="#00FF7F";}
-        else {x.style.backgroundColor="#FF6A6A";x.style.borderColor="#FF0000";y.style.backgroundColor="#FF6A6A";y.style.borderColor="#FF0000";}
+        if(!x.disabled) {switchLock(x,1);switchLock(y,1);}
+        else {switchLock(x,0);switchLock(y,0);}
     }
 }
 function updateUp() {
@@ -43,8 +47,24 @@ function updateUp() {
             let x = document.getElementById("nub"+(i+1)+""+(j+1));
             x.innerText = game.u[i][j*2].toString();
             if(debuging) console.log(i + " " + j + " " + hasUp(i,j));
-            if(hasUp(i,j)) tar.className = "nuu";
-            else tar.className = "nu";
+            if(hasUp(i,j)) {tar.classList.add("unlock");}
+            else {tar.classList.remove("unlock");tar.classList.add("lock");}
+        }
+    }
+}
+function updateAc() {
+    let i;
+    let j;
+    let tar;
+    for(i = 0;i < game.achivment.normal.length;i++) {
+        for(j = 0;j < game.achivment.normal[i].length / 2;j++) {
+            tar = document.getElementById("na"+(i+1)+""+(j+1));
+            if(tar == undefined) return;
+
+            tar.innerText = game.achivment.normal[i][j*2];
+            if(debuging) console.log(i + " " + j + " " + hasAchivment(i,j));
+            if(hasAchivment(i,j)) {tar.classList.add("unlock");}
+            else {tar.classList.remove("unlock");tar.classList.add("lock");}
         }
     }
 }

@@ -1,13 +1,13 @@
 function save(){
-	localStorage.setItem("save",JSON.stringify(game));
+	localStorage.setItem("SI-save",JSON.stringify(game));
 	
 }
 function load(){
-	if(JSON.parse(localStorage.getItem("save"))==null) {
+	if(JSON.parse(localStorage.getItem("SI-save"))==null) {
 			return;
 		}
 	else{
-		game = JSON.parse(localStorage.getItem("save"));
+		game = JSON.parse(localStorage.getItem("SI-save"));
 	}
     fixN()
 }
@@ -30,11 +30,14 @@ function fixN(){
 function hardreset(){
     let confirmation = confirm("确定要重置整个游戏吗？\n只建议在版本更新或想重玩游戏时使用该功能！");
     if(confirmation==true){
-        game = fgame;
-        localStorage.setItem("save",JSON.stringify(game));
-        load();
-        location.reload();
+        reset();
     }
+}
+function reset(){
+    game = fgame;
+    localStorage.setItem("SI-save",JSON.stringify(game));
+    load();
+    location.reload();
 }
 function exportgame(){
     save();
@@ -43,6 +46,6 @@ function exportgame(){
 }
 function importgame(){
     game = JSON.parse(decodeURIComponent(atob(prompt("请输入你的存档"))));
-    localStorage.setItem("save",JSON.stringify(game));
+    localStorage.setItem("SI-save",JSON.stringify(game));
     load();
 }

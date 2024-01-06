@@ -12,10 +12,17 @@ const fgame = {
     u: [
         [new EN("e1e20"),false,new EN("e1e200"),false,new EN("10^^1000"),false],
         [new EN("e1e20"),false,new EN("e1e200"),false,new EN("eee2000"),false],
-    ]
+    ],
+    achivment: {
+        normal: [
+            ["开始这个游戏",false,"这个增长速度有点快",false,"第一个升级",false,"购买自动购买器",false,"不消耗?听起来很酷",false],
+            ["错误",false],
+        ],
+        secret: [],
+    },
+    version: "0.31",
 };
 var game = fgame;
-let keycode;
 document.addEventListener("keydown",hotkeys);
 function hotkeys(event) {
     switch(event.key) {
@@ -26,9 +33,12 @@ function hotkeys(event) {
 function sg() {
     startNew();
     pageshow("mp");
+    subshow("ng");
     document.getElementById("change").innerText = changelog;
-    //load();
+    if((JSON.parse(JSON.parse(localStorage.getItem("SI-save")).version ?? 0)) >= (JSON.parse(fgame.version))) load();
+    else reset();
     var doc = setInterval("updateDoc()",25);
     var ge = setInterval("getGe()",25);
-    var autob = setInterval("checkAB()",25);
+    var gc = setInterval("checkGlitch()",25);
+    var ac = setInterval("checkAchivment()",25);
 }
