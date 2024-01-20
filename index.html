@@ -7,14 +7,16 @@
     <style type="text/css">
         body {
             background-color: #151118;
+            transform-origin: center;
         }
-        h1,h3,h3,p{
+        h1,h2,h3,p{
             color: white;
             font-family:Arial, Helvetica, sans-serif
         }
     </style>
     <link rel="stylesheet" type="text/css" href="css/fir.css">
     <link rel="stylesheet" type="text/css" href="css/notify.css">
+    <link rel="stylesheet" type="text/css" href="css/anim.css">
     <script type="text/javascript" src="js/ExpantaNum.js"></script>
     <script type="text/javascript" src="js/Dom.js"></script>
     <script type="text/javascript" src="js/Function.js"></script>
@@ -23,17 +25,27 @@
     <script type="text/javascript" src="js/Notify.js"></script>
     <script type="text/javascript" src="js/glitch.js"></script>
     <body onload="sg()">
-        
+        <div style="display: none;" class="c-game-on" id="on-layer">
+            <div class="note">
+                <span id="note-content">text</span>
+                <br>
+                <button onclick="document.getElementById('on-layer').style.display = 'none';document.getElementById('note-button').innerText = '好的';" id="note-button">好的</button>
+            </div>
+        </div>
         <header>
             <div id="new" class="news">
                 <p id="newtext" class="newstext">{news}</p>
             </div>
-            <h1 align="center">你有 <span class = "sus" id="showp">0</span> 嫌疑</h1>
+            
+            <div id="show">
+                <h1 align="center">你有 <span id="showp" style="color: red;">0</span> 嫌疑</h1>
+                <h2 align="center" style="display: none;" id="abs">你有 <span id="showa" style="color: orange;font-size: 2rem;">0</span> 自动购买器</h2>
+            </div>
         </header>
         <div class="ui-container">
             <div class="c-game-ui">
-
                 <!--mp = 主页面/main page-->
+                
                 <div id="buttons" align="center">
                     <button type="button" class="chs" onclick="pageshow('mp');subshow('ng')">生成器</button>
                     <button type="button" class="chs" onclick="pageshow('up');subshow('nu')">升级</button>
@@ -41,12 +53,12 @@
                     <button type="button" class="chs" onclick="pageshow('sp');subshow('save')">设置</button>
                 </div>
                 <div id="mp" class="chosen" align="center">
-                <div id="subbuttons" align="center" style="position: relative;">
-                    <button type="button" class="chs1" onclick="subshow('ng')" style="position: relative;top: 15px">普通生成器</button>
-                    <button type="button" class="chs1" onclick="subshow('ag')" style="position: relative;top: 15px">自动购买器生成器</button>
-                </div>
+                    <div id="subbuttons" align="center" style="position: relative;">
+                        <button type="button" class="chs1" onclick="subshow('ng')" style="position: relative;top: 15px">普通生成器</button>
+                        <button type="button" class="chs1" onclick="subshow('ag')" style="position: relative;top: 15px;display: none;" id="abb">自动购买器生成器</button>
+                    </div>
 
-                <div id="ng" align="center" style="position: relative;" class="chosen1">
+                    <div id="ng" align="center" style="position: relative;" class="chosen1">
                     <div>
                         <button id="gbm" class="gb unlock" style="left: 46.7%;top: 20px;" onclick="buyMaxAll()">最大化</button>
                     </div>
@@ -82,46 +94,49 @@
                         <button id="g4b" class="gb" align="left" style="top: 5px;right: 160px;" onclick="buyGe(3)">购买1</button>
                         <button id="g4bm" class="gb" align="left" style="top: 5px;right: 20px;" onclick="buyMaxGe(3)">购买最大</button>
                     </div>
-                </div>
+                    </div>
 
-                <div id="ag" align="center" style="position: relative;" class="chosen1">
-                    
-                </div>
+                    <div id="ag" align="center" style="position: relative;" class="chosen1">
+
+                    </div>
                 </div>
                 <!--up = 升级页面/upgrade page-->
                 <div id="up" class="chosen" align="center">
-                <div id="subbuttons" align="center" style="position: relative;">
+                    <div id="subbuttons" align="center" style="position: relative;">
                     <button type="button" class="chs1" onclick="subshow('nu')" style="position: relative;top: 15px">普通升级</button>
-                </div>
-                <div id="nu" class="chosen1">
+                    </div>
+                    <div id="nu" class="chosen1">
                     <table align="center">
                         <tbody>
                             <tr>
                                 <td id="nu11" class="nu" style="top: 30px;">
-                                    把乘数变为1.0001^base<br>
+                                    <span id="nut11">{name}</span>
+                                    <br>
                                     <button id="nub11" class="nub" onclick="buyUp(0,0)">{cost}嫌疑</button>
                                 </td>
                                 <td id="nu12" class="nu" style="top: 30px;">
-                                    自动最大化<br>
+                                    <span id="nut12">{name}</span>
+                                    <br>
                                     <button id="nub12" class="nub" onclick="buyUp(0,1)">{cost}嫌疑</button>
                                 </td>
                                 <td id="nu13" class="nu" style="top: 30px;">
-                                    购买生成器无消耗<br>
+                                    <span id="nut13">{name}</span>
+                                    <br>
                                     <button id="nub13" class="nub" onclick="buyUp(0,2)">{cost}嫌疑</button>
                                 </td>
                             </tr>
                         </tbody>
                     </table>
-                </div>
+                    </div>
                 </div>
                 <!--ap = 成就页面/achivment page-->
                 <div id="ap" class="chosen" align="center">
-                <div id="subbuttons" align="center" style="position: relative;">
+                    <div id="subbuttons" align="center" style="position: relative;">
                     <button type="button" class="chs1" onclick="subshow('na')" style="position: relative;top: 15px;">成就</button>
                     <button type="button" class="chs1 glitch" onclick="subshow('sa')" style="position: relative;top: 15px;border-color: blueviolet;">隐藏成就</button>
-                </div>
+                    </div>
 
-                <div id="na" align="center" style="position: relative;">
+                    <div id="na" align="center" style="position: relative;">
                     <table align="center">
                         <tbody>
                             <tr>
@@ -143,31 +158,44 @@
                             </tr>
                         </tbody>
                     </table>
-                </div>
-                <div id="sa" align="center" style="position: relative;">
+                    </div>
+                    <div id="sa" align="center" style="position: relative;">
 
-                </div>
+                    </div>
                 </div>
                 <!--sp = 设置页面/setting page-->
                 <div id="sp" class="chosen" align="center">
-                <div id="subbuttons" align="center" style="position: relative;">
-                    <button type="button" class="chs1" onclick="subshow('save')" style="position: relative;top: 15px">存档</button>
-                    <button type="button" class="chs1" onclick="subshow('changelog')" style="position: relative;top: 15px">更新内容</button>
+                    <div id="subbuttons" align="center" style="position: relative;">
+                        <button type="button" class="chs1" onclick="subshow('save')" style="position: relative;top: 15px">存档</button>
+                        <button type="button" class="chs1" onclick="subshow('status')" style="position: relative;top: 15px">统计</button>
+                        <button type="button" class="chs1" onclick="subshow('changelog')" style="position: relative;top: 15px">更新内容</button>
+                    </div>
+                    <div id="changelog" class="chosen1">
+                        <h1>更新内容</h1> 
+                        <p id="change">{changelog}</p>
+                    </div>
+                    <div id="save" class="chosen1" style="position: relative;" align="center">
+                        <button class="se" style="top: 30px;" onclick="save()">存档</button>
+                        <button class="se" style="top: 30px;" onclick="load()">读档</button>
+                        <button class="se" style="top: 30px;" onclick="exportgame()">导出存档</button>
+                        <button class="se" style="top: 30px;" onclick="importgame()">导入存档</button>
+                        <button class="se" style="top: 30px;background-color: red;border-color: red;" onclick="hardreset()">重置</button>
+                    </div>
+                    <div id="status" class="chosen1" style="position: relative;color: white;">
+                        <br>
+                        你从<span id="st">{time}</span>开始玩这个游戏
+                        <br>
+                        最后一次更新是<span id="lt">{time}</span>
+                    </div>
                 </div>
-                <div id="changelog" class="chosen1">
-                    <h1>更新内容</h1> 
-                    <p id="change">{changelog}</p>
-                </div>
-                <div id="save" class="chosen1" style="position: relative;" align="center">
-                    <button class="se" style="top: 30px;" onclick="save()">存档</button>
-                    <button class="se" style="top: 30px;" onclick="load()">读档</button>
-                    <button class="se" style="top: 30px;" onclick="exportgame()">导出存档</button>
-                    <button class="se" style="top: 30px;" onclick="importgame()">导入存档</button>
-                    <button class="se" style="top: 30px;background-color: red;border-color: red;" onclick="hardreset()">重置</button>
-                </div>
+                <div id="rbs" style="display: flex;">
+                    <button class="rb" style="left: 20px;top:-420px;display: none;" onclick="AutomationReset()" id="abr">
+                        重置以得到一个自动购买器
+                    </button>
                 </div>
             </div>
             <div class="c-game-ui--fixed">
+                
                 <div id="notification-container" class="l-notification-container">
                 </div>
             </div>

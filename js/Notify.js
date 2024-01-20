@@ -31,6 +31,7 @@ const notify = (function() {
     }
     return {
       success: (text, duration) => showNotification(text, "o-notification--success", duration),
+      done: (text,duration) => showNotification(text, "o-notification--done",duration),
       error: (text, duration) => showNotification(text, "o-notification--error", duration),
       info: (text, duration) => showNotification(text, "o-notification--info", duration),
       infinity: (text, duration) => showNotification(text, "o-notification--infinity", duration),
@@ -42,4 +43,10 @@ const notify = (function() {
       showBlackHoles: true
     };
   }());
+function NotifyN(text = "",button_text = undefined) {
+  document.getElementById('on-layer').style.display = 'flex';
+  document.getElementById("note-content").innerText = text;
+  if(button_text === undefined) return;
+  document.getElementById("note-button").innerText = button_text;
+}
   

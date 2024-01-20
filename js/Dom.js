@@ -8,10 +8,13 @@ var texts = [
     "<a href='https://www.bilibili.com/video/BV1GJ411x7h7'>点击此处以增加114514嫌疑</a>"
 ]
 function updateDoc() {
+    game.lastUpdate = new Date();
     document.getElementById("showp").innerText = game.sus.toString();
     updateGe();
     updateUp();
     updateAc();
+    updateAb();
+    updateTi();
 }
 function switchLock(ele = Element,c = Boolean) {
     ele.classList.add(c?"unlock":"lock");
@@ -19,33 +22,28 @@ function switchLock(ele = Element,c = Boolean) {
 }
 function updateGe() {
     let i;
-    let s = 0;
-    for(i = 0;i < game.Ge.length;i++) {
-        if(game.Ge[i][5]) s++;
-    }
-    for(i = 0;i < s;i++) {
-        document.getElementById("g"+(i+1)+"n").innerText = game.Ge[i][0];
-        document.getElementById("g"+(i+1)+"N").innerText = game.Ge[i][2].toString() + " ( +" + game.Ge[i][1].toString() + ")";
-        document.getElementById("g"+(i+1)+"c").innerText = "价格: " + game.Ge[i][4].toString();
-        document.getElementById("g"+(i+1)+"t").innerText = game.Ge[i][3].toString() + "x";
+    for(i = 0;i < game.Ge.normal.length;i++) {
+        document.getElementById("g"+(i+1)+"n").innerText = dcgame.Ge.normal[i];
+        document.getElementById("g"+(i+1)+"N").innerText = game.Ge.normal[i][1].toString() + " ( +" + game.Ge.normal[i][0].toString() + ")";
+        document.getElementById("g"+(i+1)+"c").innerText = "价格: " + game.Ge.normal[i][3].toString();
+        document.getElementById("g"+(i+1)+"t").innerText = game.Ge.normal[i][2].toString() + "x";
         let x = document.getElementById("g"+(i+1)+"b");
         let y = document.getElementById("g"+(i+1)+"bm");
-        if(game.sus.gte(game.Ge[i][4])) {x.disabled = false;y.disabled = false;}
+        if(game.sus.gte(game.Ge.normal[i][3])) {x.disabled = false;y.disabled = false;}
         else {x.disabled = true;y.disabled = true;}
         if(!x.disabled) {switchLock(x,1);switchLock(y,1);}
         else {switchLock(x,0);switchLock(y,0);}
     }
 }
 function updateUp() {
-    let i;
-    let j;
-    let tar;
-    for(i = 0;i < game.u.length;i++) {
-        for(j = 0;j < game.u[i].length / 2;j++) {
+    let i,j,tar;
+    for(i = 0;i < game.u.normal.length;i++) {
+        for(j = 0;j < game.u.normal[i].length;j++) {
             tar = document.getElementById("nu"+(i+1)+""+(j+1));
             if(tar == undefined) return;
-            let x = document.getElementById("nub"+(i+1)+""+(j+1));
-            x.innerText = game.u[i][j*2].toString();
+            let tar1 = document.getElementById("nut"+(i+1)+""+(j+1)),x = document.getElementById("nub"+(i+1)+""+(j+1));
+            tar1.innerText = dcgame.u.normal.name[i][j];
+            x.innerText = dcgame.u.normal.cost[i][j].toString();
             if(debuging) console.log(i + " " + j + " " + hasUp(i,j));
             if(hasUp(i,j)) {tar.classList.add("unlock");}
             else {tar.classList.remove("unlock");tar.classList.add("lock");}
@@ -53,24 +51,44 @@ function updateUp() {
     }
 }
 function updateAc() {
-    let i;
-    let j;
-    let tar;
+    let i,j,tar;
     for(i = 0;i < game.achivment.normal.length;i++) {
-        for(j = 0;j < game.achivment.normal[i].length / 2;j++) {
+        for(j = 0;j < game.achivment.normal[i].length;j++) {
             tar = document.getElementById("na"+(i+1)+""+(j+1));
             if(tar == undefined) return;
 
-            tar.innerText = game.achivment.normal[i][j*2];
+            tar.innerText = dcgame.achivment.normal[i][j];
             if(debuging) console.log(i + " " + j + " " + hasAchivment(i,j));
             if(hasAchivment(i,j)) {tar.classList.add("unlock");}
             else {tar.classList.remove("unlock");tar.classList.add("lock");}
         }
     }
 }
+function updateAb() {
+    let x = document.getElementById("showa"),y = document.getElementById("abr"),z = document.getElementById("abb"),k = document.getElementById("abs");
+    if(game.sus.gte(new EN("10^^3000")) && !game.automation.unlock && hasUp(0,1)) {
+        NotifyN("恭喜,你可以获得自动购买器了!");
+        game.automation.unlock = true;
+    }
+    if(game.automation.unlock) {
+        y.innerText = `重置以获得${getARgain().toString()}个自动购买器, 下一个在${getARcost(true).toString()}嫌疑`;
+        y.style.display = "block";
+        x.innerText = game.automation.autobuyer.toString();
+        k.style.display = "block";
+        //z.style.display = "inline-block";
+    }
+    else {
+        y.style.display = "none";
+        k.style.display = "none";
+        z.style.display = "none";
+    }
+}
+function updateTi() {
+    let a = document.getElementById("lt");
+    a.innerText = game.lastUpdate.toLocaleString("zh-CN", {timezone: "UTC"});
+}
 function pageshow(str = "") {
-    let x = document.getElementsByClassName("chosen");
-    let i;
+    let x = document.getElementsByClassName("chosen"),i;
     for(i = 0;i < x.length;i++) {
         x[i].style.display = x[i].id == str?"block":"none";
         if(debuging) console.log(x[i] + " display:" + x[i].style.display)
@@ -78,9 +96,8 @@ function pageshow(str = "") {
     if(debuging) console.log("切换了id为" + str + "的元素");
 }
 function subshow(str = "") {
-    let x = document.getElementById(str);
+    let x = document.getElementById(str),i;
     x = x.parentElement.getElementsByClassName("chosen1");
-    let i;
     for(i = 0;i < x.length;i++) {
         x[i].style.display = x[i].id == str?"block":"none";
         if(debuging) console.log(x[i] + " display:" + x[i].style.display)

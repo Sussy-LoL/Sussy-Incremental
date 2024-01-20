@@ -12,9 +12,12 @@
 }
 .o-notification {
     white-space: nowrap;
-    font-family: Typewriter, serif;
+    
     font-size: 1.3rem;
+    /*
+    font-family: Typewriter, serif;
     font-weight: bold;
+    */
     color: black;
     background-color: white;
     border: 0.1rem solid;
@@ -33,6 +36,10 @@
     border-color: #553300;
   }
   
+  .o-notification--done {
+    background-color: #c5ea0a;
+    border-color: #9ebb08;
+  }
   .o-notification--info {
     background-color: #48c0e8;
     border-color: #4980cc;

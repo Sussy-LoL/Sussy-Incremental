@@ -3,6 +3,7 @@
     --obog: #00FF7F;
     --nobg: #FF6A6A;
     --nobog: #FF0000;
+    --bg: #151118;
 }
 
 table {
@@ -18,30 +19,52 @@ table {
     border-Color: var(--obog);
 
 }
-.na {
+
+/*重置*/
+.rb {
     position: relative;
-    height: 50px;
+    height: 100px;
+    width: 200px;
+    background-color: white;
+    border-style: solid;
+    border-color: gray;
+    border-width: 5px;
+    border-radius: 5px;
+    transition: ease-out 500ms;
 }
-.nu {
+.rb:hover {
+    transform: scale(1.02);
+}
+/*自动购买器*/
+
+
+/*成就*/
+    .na {
+        position: relative;
+        height: 100px;
+        width: 100px;
+    }
+
+/*升级*/
+    .nu {
     position: relative;
     border-style: solid;
-    border-radius:10px;
-}
-.nub {
+    border-radius:5px;
+    }
+    .nub {
     border-color: lightgrey;
-    border-width: 5px;
+    border-width: 2px;
     border-style: solid;
     border-radius: 5px;
     transition: ease-out 150ms;
-}
-.nub:hover {
+    }
+    .nub:hover {
     transform: scale(1.05,1.05);
-}
-.sus {
-    color:red;
-    font-size: 50px;
-}
-.news {
+    }
+
+
+/*新闻*/
+    .news {
     width: 90%;
     left: 5%;
     height: 30px;
@@ -52,14 +75,17 @@ table {
     border-color: white;
     position: relative;
     overflow: hidden;
-}
-.newstext {
+    }
+    .newstext {
     color: black;
     font-size: 20px;
     top: -20px;
     position: absolute;
-}
-.chs {
+    transition: transform linear;
+    }
+
+/*按钮*/
+    .chs {
     width: 170px;
     height: 40px;
     justify-content: center;
@@ -71,8 +97,8 @@ table {
     border-color: orangered;
     align-self: center;
     color: white;
-}
-.chs1 {
+    }
+    .chs1 {
     width: 130px;
     height: 40px;
     justify-content: center;
@@ -84,8 +110,10 @@ table {
     border-color: #ff4f00;
     align-self: center;
     color: white;
-}
-.ge {
+    }
+
+/*生成器*/
+    .ge {
     position: relative;
     top: 25px;
     width: 95%;
@@ -96,33 +124,33 @@ table {
     border-style: solid;
     border-color: gray;
     
-}
-.gn {
+    }
+    .gn {
     position: absolute;
     left: 5px;
     top: -15px;
     font-size: 18px;
     color: black;
-}
-.gN {
+    }
+    .gN {
     position: absolute;
     left: 100px;
     top: -8px;
     color: black;
-}
-.gt {
+    }
+    .gt {
     position: absolute;
     left: 5px;
     top: 25px;
     color: black;
-}
-.gc {
+    }
+    .gc {
     position: absolute;
     left: 400px;
     top: 25px;
     color: black;
-}
-.gb {
+    }
+    .gb {
     position: absolute;
     width: 120px;
     height: 70px;
@@ -130,11 +158,13 @@ table {
     border-radius: 5px;
     border-style: solid;
     transition: ease-out 150ms;
-}
-.gb:hover {
+    }
+    .gb:hover {
     transform: scale(1.05,1.05);
-}
-.se {
+    }
+
+/*设置页面*/
+    .se {
     width: 170px;
     height: 130px;
     justify-content: center;
@@ -146,19 +176,22 @@ table {
     align-self: center;
     color: black;
     position: relative;
-}
+    }
+
 .glitch {
     color: red;
 }
-.c-game-ui {
-    overflow-x: hidden;
-    overflow-y: auto;
-    width: 100%;
-    /* stylelint-disable-next-line unit-allowed-list */
-    height: 100vh;
-    position: fixed;
-}
-.c-game-ui--fixed {
+
+/* code from antimatter dimensions */
+    .c-game-ui {
+        overflow-x: hidden;
+        overflow-y: auto;
+        width: 100%;
+        /* stylelint-disable-next-line unit-allowed-list */
+        height: 100vh;
+        position: fixed;
+    }
+    .c-game-ui--fixed {
     display: flex;
     width: 100%;
     height: 100%;
@@ -168,4 +201,42 @@ table {
     z-index: 5;
     justify-content: center;
     pointer-events: none
+    }
+/*覆盖层*/
+.c-game-on {
+    position: fixed;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    height: 100%;
+    width: 100%;
+    z-index: 7;
+    top: 0;
+    left: 0;
+    background-color: rgba(0,0,0,0.9);
+}
+.c-game-on .note,
+.c-game-on button {
+    color: white;
+    background-color: var(--bg);
+    border-color: var(--obog);
+    border-style: solid;
+    border-radius: 5px;
+}
+.c-game-on .note {
+    width: 280px;
+    height: 160px;
+    margin: auto;
+    text-align: center;
+    display: block;
+}
+.c-game-on span {
+    position: relative;
+    top: 30px;
+}
+.c-game-on button {
+    position: relative;
+    width: 80px;
+    height: 30px;
+    top: 60%;
 }
