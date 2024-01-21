@@ -1,5 +1,6 @@
-const EN = ExpantaNum;
+var EN = ExpantaNum;
 var debuging = false;
+var reseting = false;
 const changelog = '懒得写'
 const fgame = {
     sus: new EN(10),
@@ -34,7 +35,7 @@ const fgame = {
         ],
         secret: [],
     },
-    version: "0.35",
+    version: "0.36",
 };
 const dcgame = {
     automation: {

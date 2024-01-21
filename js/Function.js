@@ -38,19 +38,27 @@ function getGe() {
     }
 }
 function getAuto() {
-    let i,n; //n是最大的解锁普通生成器
+    let i,n = 0,x; //n是最大的解锁普通生成器
+    if(reseting) return;
     for(i = 0;i < game.Ge.normal.length;i++) {
-        if(!document.getElementById("g"+(n+1)+"b").disabled) n = i;
+        x = document.getElementById("g"+(i+1)+"b") ?? 1;
+        if(x != 1) {
+            if(!x.disabled) { 
+                n = i;
+            }
+        }
     }
-    if(hasUp(0,1)) {
-        let eexp = new EN.slog(game.Ge.normal[n][0],10),t = new EN.div(game.Ge.normal[n][0],new EN(10).arrow(2)(eexp));
-        eexp.add(new EN(n+1).times(game.automation.autobuyer));
-        game.Ge.normal[n][0] = new EN.times(EN.arrow(10,2,eexp),t);
-        game.Ge.normal[n][1] = new EN.times(EN.arrow(10,2,eexp),t);
+    if(hasUp(0,0)) {
+        let eexp = new EN.slog(game.Ge.normal[n][0],10);
+        eexp = eexp.add(new EN(n+1).times(game.automation.autobuyer));
+        game.Ge.normal[n][0] = new EN.arrow(10,2,eexp);
+        game.Ge.normal[n][1] = new EN.arrow(10,2,eexp);
     }
     else {
-        game.Ge.normal[n][0] = game.Ge.normal[n][0].times(new EN(2).pow(n));
-        game.Ge.normal[n][1] = game.Ge.normal[n][0].times(new EN(2).pow(n));
+        let exp = new EN.logBase(game.Ge.normal[n][0],10);
+        exp = exp.times(EN.times(new EN(2).pow(n+1),game.automation.autobuyer));
+        game.Ge.normal[n][0] = new EN(10).pow(exp);
+        game.Ge.normal[n][1] = new EN(10).pow(exp);
     }
 }
 function buyUp(row = 0,l = 0) {
@@ -82,26 +90,28 @@ function hasAchivment(row = 0,n = 0) {
 function getARcost(getNext = false) {
     //let orginalCost = new EN("10^^3000");
     let down_sus = getARgain().add(getNext?1:0);
-    console.log(down_sus.toString());
+    if(debuging) console.log(down_sus.toString());
     return (new EN.arrow(10,2,EN.times(EN.pow(1.05,down_sus),3000)));
 }
 function getARgain() {
     let down_sus = new EN.floor(EN.logBase(EN.max(EN.div(EN.slog(game.sus,10),3000),1),1.05));
-    if(down_sus <= 1) return new EN(1);
     return down_sus;
 }
 function AutomationReset() {
-    if(game.sus.gte(getARcost())) {
+    let g = getARgain();
+    if(g.neq(0)) {
+        console.log("OK");
+        reseting = true;
         document.body.style.animation = "2500ms ease-out 0s 1 normal autobuy-reset";
+        if(!game.automation.unlock) game.automation.unlock = true;
         setTimeout(() => {
-            if(!game.automation.unlock) game.automation.unlock = true;
-
             game.sus = fgame.sus;
             game.Ge.normal = fgame.Ge.normal;
             game.u.normal = fgame.u.normal;
             game.u.normal[0][1] = true;
-            game.automation.autobuyer = game.automation.autobuyer.add(getARgain());
-            game.automation.count = game.automation.count.add(getARgain());
+            game.automation.autobuyer = game.automation.autobuyer.add(g);
+            game.automation.count = game.automation.count.add(g);
+            reseting = false;
         },1250)
     }
 }
