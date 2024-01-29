@@ -25,6 +25,7 @@ function buyMaxAll() {
 function getGe() {
     let i;
     let s = 0;
+    if(reseting) return;
     for(i = 0;i < game.Ge.normal.length;i++) {
         let base = EN.floor(EN.div(game.Ge.normal[i][1],new EN(10)));
         game.Ge.normal[i][2] = EN.add(EN.mul(2,base),1);
@@ -100,18 +101,24 @@ function getARgain() {
 function AutomationReset() {
     let g = getARgain();
     if(g.neq(0)) {
-        console.log("OK");
+        if(debuging) console.log("Automation Reseting...");
         reseting = true;
         document.body.style.animation = "2500ms ease-out 0s 1 normal autobuy-reset";
         if(!game.automation.unlock) game.automation.unlock = true;
-        setTimeout(() => {
-            game.sus = fgame.sus;
-            game.Ge.normal = fgame.Ge.normal;
-            game.u.normal = fgame.u.normal;
+        let a = setTimeout(() => {
+            console.log("yee");
+            game.Ge.normal = utils.deepClone(fgame.Ge.normal);
+            game.sus = new EN(fgame.sus);
+            game.u.normal = utils.deepClone(fgame.u.normal);
             game.u.normal[0][1] = true;
             game.automation.autobuyer = game.automation.autobuyer.add(g);
-            game.automation.count = game.automation.count.add(g);
+            game.automation.count = game.automation.count.add(1);
             reseting = false;
-        },1250)
+        },1250);
+        let b = setTimeout(() => {
+            document.body.style.animation = "none";
+            clearTimeout(a);
+            clearTimeout(b);
+        },2500);
     }
 }

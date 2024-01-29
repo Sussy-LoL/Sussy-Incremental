@@ -66,11 +66,14 @@ function updateAc() {
 }
 function updateAb() {
     let x = document.getElementById("showa"),y = document.getElementById("abr"),z = document.getElementById("abb"),k = document.getElementById("abs");
+    let i = document.getElementById("art"),j = document.getElementById("arb");
     if(game.sus.gte(new EN("10^^3000")) && !game.automation.unlock && hasUp(0,1)) {
         NotifyN("恭喜,你可以获得自动购买器了!");
         game.automation.unlock = true;
     }
     if(game.automation.unlock) {
+        j.style.display = "block";
+        i.innerText = game.automation.count.toString();
         y.innerText = `重置以获得${getARgain().toString()}个自动购买器, 下一个在${getARcost(true).toString()}嫌疑`;
         y.style.display = "block";
         x.innerText = game.automation.autobuyer.toString();
@@ -78,6 +81,7 @@ function updateAb() {
         //z.style.display = "inline-block";
     }
     else {
+        j.style.display = "none";
         y.style.display = "none";
         k.style.display = "none";
         z.style.display = "none";
