@@ -9,7 +9,7 @@ var texts = [
 ]
 function updateDoc() {
     game.lastUpdate = new Date();
-    document.getElementById("showp").innerText = game.sus.toString();
+    document.getElementById("showp").innerText = format(game.sus);
     updateGe();
     updateUp();
     updateAc();
@@ -24,9 +24,9 @@ function updateGe() {
     let i;
     for(i = 0;i < game.Ge.normal.length;i++) {
         document.getElementById("g"+(i+1)+"n").innerText = dcgame.Ge.normal[i];
-        document.getElementById("g"+(i+1)+"N").innerText = game.Ge.normal[i][1].toString() + " ( +" + game.Ge.normal[i][0].toString() + ")";
-        document.getElementById("g"+(i+1)+"c").innerText = "价格: " + game.Ge.normal[i][3].toString();
-        document.getElementById("g"+(i+1)+"t").innerText = game.Ge.normal[i][2].toString() + "x";
+        document.getElementById("g"+(i+1)+"N").innerText = format(game.Ge.normal[i][1]) + " ( +" + format(game.Ge.normal[i][0]) + ")";
+        document.getElementById("g"+(i+1)+"c").innerText = "价格: " + format(game.Ge.normal[i][3]);
+        document.getElementById("g"+(i+1)+"t").innerText = format(game.Ge.normal[i][2]) + "x";
         let x = document.getElementById("g"+(i+1)+"b");
         let y = document.getElementById("g"+(i+1)+"bm");
         if(game.sus.gte(game.Ge.normal[i][3])) {x.disabled = false;y.disabled = false;}
@@ -43,7 +43,7 @@ function updateUp() {
             if(tar == undefined) return;
             let tar1 = document.getElementById("nut"+(i+1)+""+(j+1)),x = document.getElementById("nub"+(i+1)+""+(j+1));
             tar1.innerText = dcgame.u.normal.name[i][j];
-            x.innerText = dcgame.u.normal.cost[i][j].toString();
+            x.innerText = format(dcgame.u.normal.cost[i][j]);
             if(debuging) console.log(i + " " + j + " " + hasUp(i,j));
             if(hasUp(i,j)) {tar.classList.add("unlock");}
             else {tar.classList.remove("unlock");tar.classList.add("lock");}
@@ -73,10 +73,10 @@ function updateAb() {
     }
     if(game.automation.unlock) {
         j.style.display = "block";
-        i.innerText = game.automation.count.toString();
-        y.innerText = `重置以获得${getARgain().toString()}个自动购买器, 下一个在${getARcost(true).toString()}嫌疑`;
+        i.innerText = format(game.automation.count);
+        y.innerText = `重置以获得${format(getARgain())}个自动购买器, 下一个在${format(getARcost(true))}嫌疑`;
         y.style.display = "block";
-        x.innerText = game.automation.autobuyer.toString();
+        x.innerText = format(game.automation.autobuyer);
         k.style.display = "block";
         //z.style.display = "inline-block";
     }
