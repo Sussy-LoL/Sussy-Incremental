@@ -17,6 +17,7 @@
     <link rel="stylesheet" type="text/css" href="css/fir.css">
     <link rel="stylesheet" type="text/css" href="css/notify.css">
     <link rel="stylesheet" type="text/css" href="css/anim.css">
+    <script src="https://cdn.staticfile.org/jquery/2.1.4/jquery.min.js"></script>
     <script type="text/javascript" src="js/lib/ExpantaNum.js"></script>
     <script type="text/javascript" src="js/lib/Format-Expantanum.js"></script>
     <script type="text/javascript" src="js/lib/utils.js"></script>
@@ -24,9 +25,19 @@
     <script type="text/javascript" src="js/lib/glitch.js"></script>
     <script type="text/javascript" src="js/Const.js"></script>
     <script type="text/javascript" src="js/Dom.js"></script>
+    <script type="text/javascript" src="js/News.js"></script>
     <script type="text/javascript" src="js/Function.js"></script>
     <script type="text/javascript" src="js/Game.js"></script>
     <script type="text/javascript" src="js/Save.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function(){
+            $(".na").hover(function() {
+                let row = $(this).attr("id").charAt(2),n = $(this).attr("id").substr(3)
+                row = parseInt(row)-1;n = parseInt(n)-1;let tooltip = dcgame.achivment.normal.tooltip[row][n];
+                $("#natt").html(`${tooltip}`);
+            })
+        })
+    </script>
     <body onload="sg()">
         <div style="display: none;" class="c-game-on" id="on-layer">
             <div class="note">
@@ -62,41 +73,41 @@
                     </div>
 
                     <div id="ng" align="center" style="position: relative;" class="chosen1">
-                    <div>
-                        <button id="gbm" class="gb unlock" style="left: 46.7%;top: 20px;" onclick="buyMaxAll()">最大化</button>
-                    </div>
-                    <div id="g1" class="ge" style="top: 100px;">
-                        <p id="g1n" class="gn" align="left">{name}</p>
-                        <p id="g1N" class="gN" align="left">{num}</p>
-                        <p id="g1t" class="gt" align="left">{times}</p>
-                        <p id="g1c" class="gc" align="left">{cost}</p>
-                        <button id="g1b" class="gb" align="left" style="top: 5px;right: 160px;" onclick="buyGe(0)">购买1</button>
-                        <button id="g1bm" class="gb" align="left" style="top: 5px;right: 20px;" onclick="buyMaxGe(0)">购买最大</button>
-                    </div>
-                    <div id="g2" class="ge" style="top: 110px;">
-                        <p id="g2n" class="gn" align="left">{name}</p>
-                        <p id="g2N" class="gN" align="left">{num}</p>
-                        <p id="g2t" class="gt" align="left">{times}</p>
-                        <p id="g2c" class="gc" align="left">{cost}</p>
-                        <button id="g2b" class="gb" align="left" style="top: 5px;right: 160px;" onclick="buyGe(1)">购买1</button>
-                        <button id="g2bm" class="gb" align="left" style="top: 5px;right: 20px;" onclick="buyMaxGe(1)">购买最大</button>
-                    </div>
-                    <div id="g3" class="ge" style="top: 120px;">
-                        <p id="g3n" class="gn" align="left">{name}</p>
-                        <p id="g3N" class="gN" align="left">{num}</p>
-                        <p id="g3t" class="gt" align="left">{times}</p>
-                        <p id="g3c" class="gc" align="left">{cost}</p>
-                        <button id="g3b" class="gb" align="left" style="top: 5px;right: 160px;" onclick="buyGe(2)">购买1</button>
-                        <button id="g3bm" class="gb" align="left" style="top: 5px;right: 20px;" onclick="buyMaxGe(2)">购买最大</button>
-                    </div>
-                    <div id="g4" class="ge" style="top: 130px;">
-                        <p id="g4n" class="gn" align="left">{name}</p>
-                        <p id="g4N" class="gN" align="left">{num}</p>
-                        <p id="g4t" class="gt" align="left">{times}</p>
-                        <p id="g4c" class="gc" align="left">{cost}</p>
-                        <button id="g4b" class="gb" align="left" style="top: 5px;right: 160px;" onclick="buyGe(3)">购买1</button>
-                        <button id="g4bm" class="gb" align="left" style="top: 5px;right: 20px;" onclick="buyMaxGe(3)">购买最大</button>
-                    </div>
+                        <div>
+                            <button id="gbm" class="gb unlock" style="left: 46.7%;top: 20px;" onclick="buyMaxAll()">最大化</button>
+                        </div>
+                        <div id="g1" class="ge" style="top: 100px;">
+                            <p id="g1n" class="gn" align="left">{name}</p>
+                            <p id="g1N" class="gN" align="left">{num}</p>
+                            <p id="g1t" class="gt" align="left">{times}</p>
+                            <p id="g1c" class="gc" align="left">{cost}</p>
+                            <button id="g1b" class="gb" align="left" style="top: 5px;right: 160px;" onclick="buyGe(0)">购买1</button>
+                            <button id="g1bm" class="gb" align="left" style="top: 5px;right: 20px;" onclick="buyMaxGe(0)">购买最大</button>
+                        </div>
+                        <div id="g2" class="ge" style="top: 110px;">
+                            <p id="g2n" class="gn" align="left">{name}</p>
+                            <p id="g2N" class="gN" align="left">{num}</p>
+                            <p id="g2t" class="gt" align="left">{times}</p>
+                            <p id="g2c" class="gc" align="left">{cost}</p>
+                            <button id="g2b" class="gb" align="left" style="top: 5px;right: 160px;" onclick="buyGe(1)">购买1</button>
+                            <button id="g2bm" class="gb" align="left" style="top: 5px;right: 20px;" onclick="buyMaxGe(1)">购买最大</button>
+                        </div>
+                        <div id="g3" class="ge" style="top: 120px;">
+                            <p id="g3n" class="gn" align="left">{name}</p>
+                            <p id="g3N" class="gN" align="left">{num}</p>
+                            <p id="g3t" class="gt" align="left">{times}</p>
+                            <p id="g3c" class="gc" align="left">{cost}</p>
+                            <button id="g3b" class="gb" align="left" style="top: 5px;right: 160px;" onclick="buyGe(2)">购买1</button>
+                            <button id="g3bm" class="gb" align="left" style="top: 5px;right: 20px;" onclick="buyMaxGe(2)">购买最大</button>
+                        </div>
+                        <div id="g4" class="ge" style="top: 130px;">
+                            <p id="g4n" class="gn" align="left">{name}</p>
+                            <p id="g4N" class="gN" align="left">{num}</p>
+                            <p id="g4t" class="gt" align="left">{times}</p>
+                            <p id="g4c" class="gc" align="left">{cost}</p>
+                            <button id="g4b" class="gb" align="left" style="top: 5px;right: 160px;" onclick="buyGe(3)">购买1</button>
+                            <button id="g4bm" class="gb" align="left" style="top: 5px;right: 20px;" onclick="buyMaxGe(3)">购买最大</button>
+                        </div>
                     </div>
 
                     <div id="ag" align="center" style="position: relative;" class="chosen1">
@@ -140,6 +151,7 @@
                     </div>
 
                     <div id="na" align="center" style="position: relative;">
+                    <p id="natt" style="position: relative;top: 20px;">把鼠标悬浮在成就上以获得说明</p>
                     <table align="center">
                         <tbody>
                             <tr>

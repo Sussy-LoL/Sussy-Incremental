@@ -1,12 +1,3 @@
-var texts = [
-    "为什么增量游戏都有新闻?",
-    "这是一句谎话",
-    "听着,别再玩这些增量游戏了!它们是蜥蜴人的骗ju",
-    "你说得对,但是Sussy Incremental是一款由Sussy lol开发的增量游戏",
-    "我需要一个新闻生成器!",
-    "新闻，啊！新闻！",
-    "<a href='https://www.bilibili.com/video/BV1GJ411x7h7'>点击此处以增加114514嫌疑</a>"
-]
 function updateDoc() {
     game.lastUpdate = new Date();
     document.getElementById("showp").innerText = format(game.sus);
@@ -57,7 +48,7 @@ function updateAc() {
             tar = document.getElementById("na"+(i+1)+""+(j+1));
             if(tar == undefined) return;
 
-            tar.innerText = dcgame.achivment.normal[i][j];
+            tar.innerText = dcgame.achivment.normal.name[i][j];
             if(debuging) console.log(i + " " + j + " " + hasAchivment(i,j));
             if(hasAchivment(i,j)) {tar.classList.add("unlock");}
             else {tar.classList.remove("unlock");tar.classList.add("lock");}
@@ -88,8 +79,9 @@ function updateAb() {
     }
 }
 function updateTi() {
-    let a = document.getElementById("lt");
+    let a = document.getElementById("lt"),b = document.getElementById("st");
     a.innerText = game.lastUpdate.toLocaleString("zh-CN", {timezone: "UTC"});
+    b.innerText = game.firstUpdate.toLocaleString("zh-CN", {timezone: "UTC"});
 }
 function pageshow(str = "") {
     let x = document.getElementsByClassName("chosen"),i;
@@ -107,19 +99,4 @@ function subshow(str = "") {
         if(debuging) console.log(x[i] + " display:" + x[i].style.display)
     }
     if(debuging) console.log("切换了id为" + str + "的元素");
-}
-function startNew() {
-    let newsText = document.getElementById("newtext");
-    newsText.innerHTML = texts[Math.floor(Math.random() * texts.length)];
-    let p = 50 + document.body.clientWidth;
-    let l = -50 - (newsText.innerText.length * 16);
-    setInterval(function () {
-        p -= 1;
-        if (p <= l) {
-            newsText.innerHTML = texts[Math.floor(Math.random() * texts.length)];
-            l = -50 - (newsText.innerText.length * 16);
-            p = 50 + document.body.clientWidth;
-        }
-        newsText.style.left = p.toFixed(1) + "px";
-    }, 10);
 }

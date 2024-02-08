@@ -13,9 +13,7 @@ function sg() {
     pageshow("mp");
     subshow("ng");
     document.getElementById("change").innerText = changelog;
-    if(game.firstUpdate == 0) game.firstUpdate = new Date();
     document.getElementById("st").innerText = game.firstUpdate.toLocaleString("zh-CN", {timezone: "UTC"});
-    game.lastUpdate = new Date();
     if((JSON.parse(JSON.parse(localStorage.getItem("SI-save")).version ?? 0)) < 0.37) reset();
     else load();
     var doc = setInterval("updateDoc()",25);

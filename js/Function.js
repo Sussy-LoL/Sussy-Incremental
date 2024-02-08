@@ -61,6 +61,7 @@ function getAuto() {
         game.Ge.normal[n][0] = new EN(10).pow(exp);
         game.Ge.normal[n][1] = new EN(10).pow(exp);
     }
+    if(game.Ge.normal[n][0].lte(1)) buyMaxGe(n);
 }
 function buyUp(row = 0,l = 0) {
     let cost = dcgame.u.normal.cost[row][l];
@@ -82,7 +83,7 @@ function checkAchivment() {
     if(hasUp(0,2) && !hasAchivment(0,4)) addAchivment(0,4);
 }
 function addAchivment(row = 0,n = 0) {
-    notify.success("达成成就: " + dcgame.achivment.normal[row][n],2000);
+    notify.success("达成成就: " + dcgame.achivment.normal.name[row][n],2000);
     game.achivment.normal[row][n] = true;
 }
 function hasAchivment(row = 0,n = 0) {

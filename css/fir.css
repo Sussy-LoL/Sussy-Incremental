@@ -48,6 +48,7 @@ table {
 /*升级*/
     .nu {
     position: relative;
+    height: 100px;
     border-style: solid;
     border-radius:5px;
     }
@@ -75,6 +76,7 @@ table {
     border-color: white;
     position: relative;
     overflow: hidden;
+    text-align: right;
     }
     .newstext {
     color: black;

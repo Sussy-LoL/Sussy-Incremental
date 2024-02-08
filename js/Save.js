@@ -26,6 +26,11 @@ function fixN(){
     game.sus = new EN(game.sus);
     game.automation.autobuyer = new EN(game.automation.autobuyer);
     game.automation.count = new EN(game.automation.count);
+    game.firstUpdate = new Date(game.firstUpdate);
+    if(!(game.firstUpdate instanceof Date)) {
+        game.firstUpdate = new Date();
+        console.log(game.firstUpdate);
+    }
 }
 function hardreset(){
     let confirmation = confirm("确定要重置整个游戏吗？\n只建议在版本更新或想重玩游戏时使用该功能！");
