@@ -1,18 +1,39 @@
-function buyGe(n = 0) {
-    let x = document.getElementById("g"+(n+1)+"b");
-    if(!x.disabled) {
-        if(!hasUp(0,2)) game.sus = game.sus.sub(game.Ge.normal[n][3]);
-        game.Ge.normal[n][0] = game.Ge.normal[n][0].add(new EN(1));
-        game.Ge.normal[n][1] = game.Ge.normal[n][1].add(new EN(1));
+function buyGe(n = 0, type = "normal") {
+    if(type == "normal") {
+        let x = document.getElementById("g"+(n+1)+"b");
+        if(!x.disabled) {
+            if(!hasUp(0,2)) game.sus = game.sus.sub(game.Ge.normal[n][3]);
+            game.Ge.normal[n][0] = game.Ge.normal[n][0].add(new EN(1));
+            game.Ge.normal[n][1] = game.Ge.normal[n][1].add(new EN(1));
+        }
+    }
+    else if(type == "auto") {
+        let y = document.getElementById("ag"+(n+1)+"b");
+        if(!y.disabled) {
+            if(!hasUp(0,2)) game.automation.autobuyer = game.automation.autobuyer.sub(game.Ge.normal[n][3]);
+            game.Ge.auto[n][0] = game.Ge.auto[n][0].add(new EN(1));
+            game.Ge.auto[n][1] = game.Ge.auto[n][1].add(new EN(1));
+        }
     }
 }
-function buyMaxGe(n = 0) {
-    let x = document.getElementById("g"+(n+1)+"b");
-    if(!x.disabled) {
-        let time = EN.floor(EN.div(game.sus,game.Ge.normal[n][3]));
-        if(!hasUp(0,2)) game.sus = game.sus.sub(EN.mul(game.Ge.normal[n][3],time));
-        game.Ge.normal[n][0] = game.Ge.normal[n][0].add(time);
-        game.Ge.normal[n][1] = game.Ge.normal[n][1].add(time);
+function buyMaxGe(n = 0, type = "normal") {
+    if(type == "normal") {
+        let x = document.getElementById("g"+(n+1)+"b");
+        if(!x.disabled) {
+            let time = EN.floor(EN.div(game.sus,game.Ge.normal[n][3]));
+            if(!hasUp(0,2)) game.sus = game.sus.sub(EN.mul(game.Ge.normal[n][3],time));
+            game.Ge.normal[n][0] = game.Ge.normal[n][0].add(time);
+            game.Ge.normal[n][1] = game.Ge.normal[n][1].add(time);
+        }
+    }
+    else if(type == "auto") {
+        let y = document.getElementById("g"+(n+1)+"b");
+        if(!y.disabled) {
+            let time = EN.floor(EN.div(game.automation.autobuyer,game.Ge.auto[n][3]));
+            if(!hasUp(0,2)) game.automation.autobuyer = game.automation.autobuyer.sub(EN.mul(game.Ge.auto[n][3],time));
+            game.Ge.auto[n][0] = game.Ge.auto[n][0].add(time);
+            game.Ge.auto[n][1] = game.Ge.auto[n][1].add(time);
+        }
     }
 }
 function buyMaxAll() {
@@ -20,9 +41,14 @@ function buyMaxAll() {
     let s = 0;
     for(i = game.Ge.normal.length-1;i >= 0;i--) {
         buyMaxGe(i);
+        buyMaxGe(i,"auto");
     }
 }
 function getGe() {
+    getNormalGe();
+    getAutoGe();
+}
+function getNormalGe() {
     let i;
     let s = 0;
     if(reseting) return;
@@ -36,6 +62,19 @@ function getGe() {
     }
     if(game.automation.autobuyer.gte(new EN(1))) {
         getAuto();
+    }
+}
+function getAutoGe() {
+    let i;
+    let s = 0;
+    if(reseting) return;
+    for(i = 0;i < game.Ge.auto.length;i++) {
+        let base = EN.floor(EN.div(game.Ge.auto[i][1],new EN(10)));
+        game.Ge.auto[i][2] = EN.add(EN.mul(2,base),1);
+        //if(hasUp(0,0)) game.Ge.auto[i][2] = EN.pow(new EN(1.0001),base);
+        //game.Ge.normal[i][3] = EN.pow(2,base);
+        if(i == 0) game.automation.autobuyer = game.automation.autobuyer.add(game.Ge.auto[i][1].mul(game.Ge.auto[i][2]));
+        else game.Ge.auto[i-1][1] = game.Ge.auto[i-1][1].add(game.Ge.auto[i][1].mul(game.Ge.auto[i][2]));
     }
 }
 function getAuto() {
@@ -107,7 +146,7 @@ function AutomationReset() {
         document.body.style.animation = "2500ms ease-out 0s 1 normal autobuy-reset";
         if(!game.automation.unlock) game.automation.unlock = true;
         let a = setTimeout(() => {
-            console.log("yee");
+            //console.log("yee");
             game.Ge.normal = utils.deepClone(fgame.Ge.normal);
             game.sus = new EN(fgame.sus);
             game.u.normal = utils.deepClone(fgame.u.normal);

@@ -17,13 +17,16 @@ const fgame = {
             [new EN(0),new EN(0),new EN(1),new EN("10^^200"),true],
         ],
         auto: [
-            [new EN(0),new EN(0),new EN(1),new EN(10),true],
+            [new EN(0),new EN(0),new EN(1),new EN(10),true], // 0购买数量 1数量 2倍数 3价格 4解锁
+            [new EN(0),new EN(0),new EN(1),new EN(1e20),true],
+            [new EN(0),new EN(0),new EN(1),new EN("ee500"),true],
+            [new EN(0),new EN(0),new EN(1),new EN("10^^200"),true],
         ]
     },
     u: {
         normal: [
-            [false,false,false],
-            [false,false,false],
+            [false,false,false,],
+            [false,],
         ]
     },
     achivment: {
@@ -33,14 +36,14 @@ const fgame = {
         ],
         secret: [],
     },
-    version: "0.37",
+    version: "0.38",
 };
 const dcgame = {
     automation: {
     },
     Ge: {
         normal: ["第一生成器","第二生成器","第三生成器","第四生成器",],
-        auto: ["第一自动购买器生成器"],
+        auto: ["第一自动购买器生成器","第二自动购买器生成器","第三自动购买器生成器","第四自动购买器生成器",],
     },
     u: {
         normal: {
@@ -50,7 +53,7 @@ const dcgame = {
             ],
             cost: [
                 [new EN("e1e20"),new EN("e1e200"),new EN("10^^1000"),],
-                [new EN("e1e20"),new EN("e1e200"),new EN("10^^1000"),],
+                [new EN("NaN"),],
             ]
         },
         

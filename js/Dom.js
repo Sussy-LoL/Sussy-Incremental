@@ -12,15 +12,34 @@ function switchLock(ele = Element,c = Boolean) {
     ele.classList.remove(c?"lock":"unlock");
 }
 function updateGe() {
+    NormalGe();
+    AutomationGe();
+}
+function NormalGe() {
     let i;
     for(i = 0;i < game.Ge.normal.length;i++) {
         document.getElementById("g"+(i+1)+"n").innerText = dcgame.Ge.normal[i];
-        document.getElementById("g"+(i+1)+"N").innerText = format(game.Ge.normal[i][1]) + " ( +" + format(game.Ge.normal[i][0]) + ")";
+        document.getElementById("g"+(i+1)+"N").innerText = format(game.Ge.normal[i][1]) + " (+" + format(game.Ge.normal[i][0]) + ")";
         document.getElementById("g"+(i+1)+"c").innerText = "价格: " + format(game.Ge.normal[i][3]);
         document.getElementById("g"+(i+1)+"t").innerText = format(game.Ge.normal[i][2]) + "x";
         let x = document.getElementById("g"+(i+1)+"b");
         let y = document.getElementById("g"+(i+1)+"bm");
         if(game.sus.gte(game.Ge.normal[i][3])) {x.disabled = false;y.disabled = false;}
+        else {x.disabled = true;y.disabled = true;}
+        if(!x.disabled) {switchLock(x,1);switchLock(y,1);}
+        else {switchLock(x,0);switchLock(y,0);}
+    }
+}
+function AutomationGe() {
+    let i;
+    for(i = 0;i < game.Ge.auto.length;i++) {
+        document.getElementById("ag"+(i+1)+"n").innerText = dcgame.Ge.auto[i];
+        document.getElementById("ag"+(i+1)+"N").innerText = format(game.Ge.auto[i][1]) + " (+" + format(game.Ge.auto[i][0]) + ")";
+        document.getElementById("ag"+(i+1)+"c").innerText = `价格: ${format(game.Ge.auto[i][3])}自动购买器`;
+        document.getElementById("ag"+(i+1)+"t").innerText = format(game.Ge.auto[i][2]) + "x";
+        let x = document.getElementById("ag"+(i+1)+"b");
+        let y = document.getElementById("ag"+(i+1)+"bm");
+        if(game.automation.autobuyer.gte(game.Ge.auto[i][3])) {x.disabled = false;y.disabled = false;}
         else {x.disabled = true;y.disabled = true;}
         if(!x.disabled) {switchLock(x,1);switchLock(y,1);}
         else {switchLock(x,0);switchLock(y,0);}
@@ -69,7 +88,7 @@ function updateAb() {
         y.style.display = "block";
         x.innerText = format(game.automation.autobuyer);
         k.style.display = "block";
-        //z.style.display = "inline-block";
+        z.style.display = "initial";
     }
     else {
         j.style.display = "none";

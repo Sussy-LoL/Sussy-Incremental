@@ -4,6 +4,8 @@
     --nobg: #FF6A6A;
     --nobog: #FF0000;
     --bg: #151118;
+    --button-layer: 15;
+    --sub-button-layer: 14;
 }
 
 table {
@@ -22,7 +24,7 @@ table {
 
 /*重置*/
 .rb {
-    position: relative;
+    position: absolute;
     height: 100px;
     width: 200px;
     background-color: white;
@@ -31,6 +33,7 @@ table {
     border-width: 5px;
     border-radius: 5px;
     transition: ease-out 500ms;
+    z-index: var(--button-layer);
 }
 .rb:hover {
     transform: scale(1.02);
@@ -99,6 +102,7 @@ table {
     border-color: orangered;
     align-self: center;
     color: white;
+    z-index: var(--button-layer);
     }
     .chs1 {
     width: 130px;
@@ -112,6 +116,7 @@ table {
     border-color: #ff4f00;
     align-self: center;
     color: white;
+    z-index: var(--sub-button-layer);
     }
 
 /*生成器*/

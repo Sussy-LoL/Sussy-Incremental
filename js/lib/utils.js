@@ -143,6 +143,16 @@ const utils = (function() {
     // ObjectFunctionString === fnToString.call(Object)
     return typeof Ctor === 'function' && fnToString.call(Ctor) === ObjectFunctionString
   };
+
+  const GetLength = obj => {
+    let type = toType(obj),len = 0;
+    if(obj === undefined || !obj) return 0;
+    if(type != 'array') return 1;
+    obj.forEach((element) => {
+      len += GetLength(element)
+    })
+    return len;
+  }
    
    
   return {
@@ -151,6 +161,7 @@ const utils = (function() {
     deepClone,
     toType,
     isPlainObject,
-    merge
+    merge,
+    GetLength,
   };
 }())

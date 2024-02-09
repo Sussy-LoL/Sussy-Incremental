@@ -23,6 +23,12 @@ function fixN(){
         game.Ge.normal[i][2] = new EN(game.Ge.normal[i][2]);
         game.Ge.normal[i][3] = new EN(game.Ge.normal[i][3]);
     }
+    for(i = 0;i < game.Ge.auto.length;i++) {
+        game.Ge.auto[i][0] = new EN(game.Ge.auto[i][0]);
+        game.Ge.auto[i][1] = new EN(game.Ge.auto[i][1]);
+        game.Ge.auto[i][2] = new EN(game.Ge.auto[i][2]);
+        game.Ge.auto[i][3] = new EN(game.Ge.auto[i][3]);
+    }
     game.sus = new EN(game.sus);
     game.automation.autobuyer = new EN(game.automation.autobuyer);
     game.automation.count = new EN(game.automation.count);
