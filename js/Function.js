@@ -10,7 +10,7 @@ function buyGe(n = 0, type = "normal") {
     else if(type == "auto") {
         let y = document.getElementById("ag"+(n+1)+"b");
         if(!y.disabled) {
-            if(!hasUp(0,2)) game.automation.autobuyer = game.automation.autobuyer.sub(game.Ge.normal[n][3]);
+            if(!hasUp(1,0)) game.automation.autobuyer = game.automation.autobuyer.sub(game.Ge.normal[n][3]);
             game.Ge.auto[n][0] = game.Ge.auto[n][0].add(new EN(1));
             game.Ge.auto[n][1] = game.Ge.auto[n][1].add(new EN(1));
         }
@@ -30,7 +30,7 @@ function buyMaxGe(n = 0, type = "normal") {
         let y = document.getElementById("g"+(n+1)+"b");
         if(!y.disabled) {
             let time = EN.floor(EN.div(game.automation.autobuyer,game.Ge.auto[n][3]));
-            if(!hasUp(0,2)) game.automation.autobuyer = game.automation.autobuyer.sub(EN.mul(game.Ge.auto[n][3],time));
+            if(!hasUp(1,0)) game.automation.autobuyer = game.automation.autobuyer.sub(EN.mul(game.Ge.auto[n][3],time));
             game.Ge.auto[n][0] = game.Ge.auto[n][0].add(time);
             game.Ge.auto[n][1] = game.Ge.auto[n][1].add(time);
         }
@@ -71,7 +71,7 @@ function getAutoGe() {
     for(i = 0;i < game.Ge.auto.length;i++) {
         let base = EN.floor(EN.div(game.Ge.auto[i][1],new EN(10)));
         game.Ge.auto[i][2] = EN.add(EN.mul(2,base),1);
-        //if(hasUp(0,0)) game.Ge.auto[i][2] = EN.pow(new EN(1.0001),base);
+        if(hasUp(1,1)) game.Ge.auto[i][2] = EN.pow(1.00000001,base);
         //game.Ge.normal[i][3] = EN.pow(2,base);
         if(i == 0) game.automation.autobuyer = game.automation.autobuyer.add(game.Ge.auto[i][1].mul(game.Ge.auto[i][2]));
         else game.Ge.auto[i-1][1] = game.Ge.auto[i-1][1].add(game.Ge.auto[i][1].mul(game.Ge.auto[i][2]));
@@ -115,13 +115,17 @@ function hasUp(row = 0,n = 0) {
     return game.u.normal[row][n];
 }
 function checkAchivment() {
-    if(game.sus.gte(0) && !hasAchivment(0,0)) addAchivment(0,0);
-    if(game.sus.gte("1e5000") && !hasAchivment(0,1)) addAchivment(0,1);
-    if(hasUp(0,0) && !hasAchivment(0,2)) addAchivment(0,2);
-    if(hasUp(0,1) && !hasAchivment(0,3)) addAchivment(0,3);
-    if(hasUp(0,2) && !hasAchivment(0,4)) addAchivment(0,4);
+    if(game.sus.gte(0)) addAchivment(0,0);
+    if(game.sus.gte("1e5000")) addAchivment(0,1);
+    if(hasUp(0,0)) addAchivment(0,2);
+    if(hasUp(0,1)) addAchivment(0,3);
+    if(hasUp(0,2)) addAchivment(0,4);
+    if(game.automation.autobuyer.gte(1)) addAchivment(0,5);
+    if(game.automation.autobuyer.gte(114514)) addAchivment(0,6);
+    if(hasUp(1,1)) addAchivment(0,7);
 }
 function addAchivment(row = 0,n = 0) {
+    if(hasAchivment(row,n)) return;
     notify.success("达成成就: " + dcgame.achivment.normal.name[row][n],2000);
     game.achivment.normal[row][n] = true;
 }
@@ -135,8 +139,7 @@ function getARcost(getNext = false) {
     return (new EN.arrow(10,2,EN.times(EN.pow(1.05,down_sus),3000)));
 }
 function getARgain() {
-    let down_sus = new EN.floor(EN.logBase(EN.max(EN.div(EN.slog(game.sus,10),3000),1),1.05));
-    return down_sus;
+    return new EN.floor(EN.logBase(EN.max(EN.div(EN.slog(game.sus,10),3000),1),1.05));
 }
 function AutomationReset() {
     let g = getARgain();
@@ -153,6 +156,40 @@ function AutomationReset() {
             game.u.normal[0][1] = true;
             game.automation.autobuyer = game.automation.autobuyer.add(g);
             game.automation.count = game.automation.count.add(1);
+            reseting = false;
+        },1250);
+        let b = setTimeout(() => {
+            document.body.style.animation = "none";
+            clearTimeout(a);
+            clearTimeout(b);
+        },2500);
+    }
+}
+function getCRcost(getNext = false) {
+    let down_sus = getCRgain().add(getNext?1:0);
+    return new EN(10).arrow(2)(new EN(10).arrow(2)(new EN(10).arrow(2)(new EN(1.02).pow(down_sus))));
+}
+function getCRgain() {
+    let down_sus = new EN.slog(game.sus,10).slog(10).slog(10);
+    down_sus = down_sus.lte(0)?new EN(0):down_sus.logBase(1.02).floor()
+    return down_sus.lte(0)?new EN(0):down_sus;
+}
+function ChoclateReset() {
+    let g = getCRgain();
+    if(g.gt(0)) {
+        if(debuging) console.log("Choclate Reseting...");
+        reseting = true;
+        document.body.style.animation = "2500ms ease-out 0s 1 normal choclate-reset";
+        if(!game.automation.unlock) game.automation.unlock = true;
+        let a = setTimeout(() => {
+            //console.log("yee");
+            game.Ge = utils.deepClone(fgame.Ge);
+            game.sus = new EN(fgame.sus);
+            game.automation.autobuyer = new EN(fgame.automation.autobuyer);
+            game.u.normal = utils.deepClone(fgame.u.normal);
+            game.choclate.choc = game.choclate.choc.add(g);
+            game.choclate.count = game.choclate.count.add(1);
+            //game.u.normal[0][1] = true;
             reseting = false;
         },1250);
         let b = setTimeout(() => {

@@ -143,16 +143,19 @@ const utils = (function() {
     // ObjectFunctionString === fnToString.call(Object)
     return typeof Ctor === 'function' && fnToString.call(Ctor) === ObjectFunctionString
   };
-
+/*
   const GetLength = obj => {
-    let type = toType(obj),len = 0;
-    if(obj === undefined || !obj) return 0;
-    if(type != 'array') return 1;
-    obj.forEach((element) => {
+    let type = toType(obj),len = 0,tobj = getOwnProperties(obj);
+    if(tobj === undefined || !tobj) return 0;
+    if(type != 'object') return 1;
+    if(obj.has(obj)) return Number.POSITIVE_INFINITY;
+    for(element of tobj) {
+      
       len += GetLength(element)
-    })
+    }
     return len;
   }
+*/
    
    
   return {
@@ -162,6 +165,6 @@ const utils = (function() {
     toType,
     isPlainObject,
     merge,
-    GetLength,
+    //GetLength,
   };
 }())

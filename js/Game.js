@@ -9,6 +9,19 @@ function hotkeys(event) {
     }
 }
 function sg() {
+    InitGame();
+    if((JSON.parse(JSON.parse(localStorage.getItem("SI-save")).version ?? 0)) < 0.39) reset();
+    else load();
+    var update = setInterval("smallUpdate()",25);
+    //var cg = setInterval();
+}
+function smallUpdate() {
+    updateDoc();
+    getGe();
+    checkGlitch();
+    checkAchivment();
+}
+function InitGame() {
     InitAchivment();
     InitGenerator();
     InitUpgrade();
@@ -16,14 +29,6 @@ function sg() {
     pageshow("mp");
     subshow("ng");
     document.getElementById("change").innerText = changelog;
-    document.getElementById("st").innerText = game.firstUpdate.toLocaleString("zh-CN", {timezone: "UTC"});
-    if((JSON.parse(JSON.parse(localStorage.getItem("SI-save")).version ?? 0)) < 0.37) reset();
-    else load();
-    var doc = setInterval("updateDoc()",25);
-    var ge = setInterval("getGe()",25);
-    var gc = setInterval("checkGlitch()",25);
-    var ac = setInterval("checkAchivment()",25);
-    //var cg = setInterval();
 }
 function InitAchivment() {
     let i,j,target_div = document.getElementById("na");
@@ -66,8 +71,6 @@ function InitNormalGenerator() {
         name_p.id = `g${i+1}n`;num_p.id = `g${i+1}N`;mul_p.id = `g${i+1}t`;cost_p.id = `g${i+1}c`;buy.id = `g${i+1}b`;buyMax.id = `g${i+1}bm`;
         buy.style.top = "5px";buyMax.style.top = "5px";buy.style.right = "160px";buyMax.style.right = "20px";
         buy.setAttribute("onclick",`buyGe(${i})`);buyMax.setAttribute("onclick",`buyMaxGe(${i})`);
-        console.log(buy.onclick);
-        console.log(i);
         buy.textContent = "购买1";buyMax.textContent = "购买最大";
         Ge_div.classList.add("ge");Ge_div.style.top = `${40 + 10*i}px`;Ge_div.id = `g${i+1}`;
         Ge_div.appendChild(name_p);Ge_div.appendChild(num_p);Ge_div.appendChild(mul_p);Ge_div.appendChild(cost_p);Ge_div.appendChild(buy);Ge_div.appendChild(buyMax);

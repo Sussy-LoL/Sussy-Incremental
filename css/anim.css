@@ -9,3 +9,7 @@
         transform: rotate(0deg) scale(1);
     }
 }
+@keyframes choclate-reset {
+    0% { transform: rotate3d(5.2, -2.8, 1.4, 0deg); }
+    100% { transform: rotate3d(5.2, -2.8, 1.4, 360deg); }
+}

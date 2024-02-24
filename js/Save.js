@@ -16,7 +16,7 @@ function load(){
 }
 function fixN(){
     let i;
-    let j;
+    //let j;
     for(i = 0;i < game.Ge.normal.length;i++) {
         game.Ge.normal[i][0] = new EN(game.Ge.normal[i][0]);
         game.Ge.normal[i][1] = new EN(game.Ge.normal[i][1]);
@@ -32,11 +32,10 @@ function fixN(){
     game.sus = new EN(game.sus);
     game.automation.autobuyer = new EN(game.automation.autobuyer);
     game.automation.count = new EN(game.automation.count);
-    game.firstUpdate = new Date(game.firstUpdate);
-    if(!(game.firstUpdate instanceof Date)) {
-        game.firstUpdate = new Date();
-        console.log(game.firstUpdate);
-    }
+    if(game.firstUpdate != 0) game.firstUpdate = new Date(game.firstUpdate);
+    else game.firstUpdate = new Date();
+    game.achivment = utils.deepClone(fgame.achivment);
+    game.u = utils.deepClone(fgame.u);
 }
 function hardreset(){
     let confirmation = confirm("确定要重置整个游戏吗？\n只建议在版本更新或想重玩游戏时使用该功能！");

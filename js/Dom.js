@@ -6,6 +6,7 @@ function updateDoc() {
     updateAc();
     updateAb();
     updateTi();
+    updateC();
 }
 function switchLock(ele = Element,c = Boolean) {
     ele.classList.add(c?"unlock":"lock");
@@ -95,6 +96,29 @@ function updateAb() {
         y.style.display = "none";
         k.style.display = "none";
         z.style.display = "none";
+    }
+}
+function updateC() {
+    let x = document.getElementById("showc"),y = document.getElementById("cr"),k = document.getElementById("cs");
+    let i = document.getElementById("crt"),j = document.getElementById("crb");
+    if(game.sus.gte(new EN(10).arrow(2)(new EN(10).arrow(2)(1))) && !game.choclate.unlock && hasUp(0,1)) {
+        NotifyN("恭喜,你可以获得巧克力了!");
+        game.choclate.unlock = true;
+    }
+    if(game.choclate.unlock) {
+        j.style.display = "block";
+        i.innerText = format(game.choclate.count);
+        y.innerText = `重置以获得${format(getCRgain())}个巧克力, 下一个在${format(getCRcost(true))}嫌疑`;
+        y.style.display = "block";
+        x.innerText = format(game.choclate.choc);
+        k.style.display = "block";
+        //z.style.display = "initial";
+    }
+    else {
+        j.style.display = "none";
+        y.style.display = "none";
+        k.style.display = "none";
+        //z.style.display = "none";
     }
 }
 function updateTi() {

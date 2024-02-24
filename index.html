@@ -40,28 +40,28 @@
                 <button onclick="document.getElementById('on-layer').style.display = 'none';document.getElementById('note-button').innerText = '好的';" id="note-button">好的</button>
             </div>
         </div>
-        <header>
-            <div id="new" class="news">
-                <p id="newtext" class="newstext">{news}</p>
-            </div>
-            
-            <div id="show">
-                <h1 align="center">你有 <span id="showp" style="color: red;">0</span> 嫌疑</h1>
-                <h2 align="center" style="display: none;" id="abs">你有 <span id="showa" style="color: orange;font-size: 2rem;">0</span> 自动购买器</h2>
-            </div>
-        </header>
+        
         <div class="ui-container">
             <div class="c-game-ui">
-                <!--mp = 主页面/main page-->
-                
+                <div id="header" style="z-index: var(--head-layer);">
+                    <div id="new" class="news">
+                        <p id="newtext" class="newstext">{news}</p>
+                    </div>
+                    <div id="show">
+                        <h1 align="center">你有 <span id="showp" style="color: red;">0</span> 嫌疑</h1>
+                        <h2 align="center" style="display: none;" id="abs">你有 <span id="showa" style="color: orange;font-size: 2rem;">0</span> 自动购买器</h2>
+                        <h2 align="center" style="display: none;" id="cs">你有 <span id="showc" style="color: coral;font-size: 2rem;">0</span> 巧克力</h2>
+                    </div>
+                </div>
                 <div id="buttons" align="center">
                     <button type="button" class="chs" onclick="pageshow('mp');subshow('ng')">生成器</button>
                     <button type="button" class="chs" onclick="pageshow('up');subshow('nu')">升级</button>
                     <button type="button" class="chs" onclick="pageshow('ap');subshow('na')">成就</button>
                     <button type="button" class="chs" onclick="pageshow('sp');subshow('save')">设置</button>
                     <div id="rbs">
-                        <button class="rb" style="display: none;top: 0px;left: 20px;" onclick="AutomationReset()" id="abr">重置以得到一个自动购买器</button>
-                        <button id="gbm" class="gb unlock" style="right: 40px;top: 0px;z-index: var(--button-layer);" onclick="buyMaxAll()">最大化</button>
+                        <button class="rb" style="display: none;top: 50px;left: 20px;" onclick="AutomationReset()" id="abr"></button>
+                        <button class="rb" style="top: 160px;left: 20px;border-color: coral;background-color: #EFA282;" onclick="ChoclateReset()" id="cr"></button>
+                        <button id="gbm" class="gb unlock" style="right: 40px;top: 80px;z-index: var(--button-layer);" onclick="buyMaxAll()">最大化</button>
                     </div>
                 </div>
                 <div id="mp" class="chosen" align="center">
@@ -116,6 +116,9 @@
                         最后一次更新是<span id="lt">{time}</span>
                         <span id="arb"><br>
                         进行了<span id="art">{times}</span>次自动购买器重置
+                        </span>
+                        <span id="crb"><br>
+                        进行了<span id="crt">{times}</span>次巧克力重置
                         </span>
                     </div>
                 </div>
