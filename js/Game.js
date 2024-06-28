@@ -1,6 +1,6 @@
 var debuging = false;
 var reseting = false;
-var game = fgame;
+var game = utils.deepClone(fgame);
 document.addEventListener("keydown",hotkeys);
 function hotkeys(event) {
     switch(event.key) {
@@ -10,8 +10,8 @@ function hotkeys(event) {
 }
 function sg() {
     InitGame();
-    if((JSON.parse(JSON.parse(localStorage.getItem("SI-save")).version ?? 0)) < 0.39) reset();
-    else load();
+    load();
+    if (game.firstUpdate == 0) game.firstUpdate = new Date();
     var update = setInterval("smallUpdate()",25);
     //var cg = setInterval();
 }
@@ -22,13 +22,37 @@ function smallUpdate() {
     checkAchivment();
 }
 function InitGame() {
+    addButtons({ refer: "mp", content: "生成器", id: "", tar: "buttons" },
+        { refer: "up", content: "升级", id: "", tar: "buttons" },
+        { refer: "ap", content: "成就", id: "", tar: "buttons" },
+        { refer: "sp", content: "设置", id: "", tar: "buttons" });
     InitAchivment();
     InitGenerator();
     InitUpgrade();
     startNew();
     pageshow("mp");
-    subshow("ng");
     document.getElementById("change").innerText = changelog;
+}
+function addButtons(...e) {
+    e.forEach((ele) => {
+        addButton(ele.refer, ele.content, ele.id, ele.tar);
+    }
+    );
+}
+function addButton(refer = "", content = "", id = "",tar = "buttons") {
+    let target_div = document.getElementById(tar), button = document.createElement("button");
+    button.id = id;
+    button.type = "button";
+    button.classList.add("chs");
+    button.textContent = content;
+    button.setAttribute("onclick", `pageshow('${refer}')`);
+    target_div.appendChild(button);
+    return button;
+}
+function addSubButton(refer = "", content = "", id = "") {
+    let button = addButton(refer, content, id, "subbuttons");
+    button.setAttribute("onclick", `subshow('${refer}')`);
+    return button;
 }
 function InitAchivment() {
     let i,j,target_div = document.getElementById("na");
@@ -47,12 +71,12 @@ function InitAchivment() {
     }
     table.appendChild(tbody);
     target_div.appendChild(table);
-    $(document).ready(function(){
-        $(".na").hover(function() {
-            let row = $(this).attr("id").charAt(2),n = $(this).attr("id").substr(3)
-            row = parseInt(row)-1;n = parseInt(n)-1;let tooltip = dcgame.achivment.normal.tooltip[row][n];
-            $("#natt").html(`${tooltip}`);
-        })
+    $(".na").hover(function() {
+        let row = $(this).attr("id").charAt(2),n = $(this).attr("id").substr(3)
+        row = parseInt(row) - 1;
+        n = parseInt(n) - 1;
+        let tooltip = dcgame.achivment.normal.tooltip[row][n];
+        $("#natt").html(`${tooltip}`);
     })
 }
 function InitGenerator() {

@@ -1,0 +1,282 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "D:\\Backup\\\u6211\u7684\u6587\u6863\\GitHub\\Sussy-Incremental\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\Backup\\\u6211\u7684\u6587\u6863\\GitHub\\Sussy-Incremental\\index.html||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:index.html||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\Backup\\\u6211\u7684\u6587\u6863\\GitHub\\Sussy-Incremental\\README.md||{EFC0BB08-EA7D-40C6-A696-C870411A895B}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:README.md||{EFC0BB08-EA7D-40C6-A696-C870411A895B}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\Backup\\\u6211\u7684\u6587\u6863\\GitHub\\Sussy-Incremental\\js\\Dom.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:js\\Dom.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\Backup\\\u6211\u7684\u6587\u6863\\GitHub\\Sussy-Incremental\\js\\Function.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:js\\Function.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\Backup\\\u6211\u7684\u6587\u6863\\GitHub\\Sussy-Incremental\\js\\Const.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:js\\Const.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\Backup\\\u6211\u7684\u6587\u6863\\GitHub\\Sussy-Incremental\\js\\Game.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:js\\Game.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\Backup\\\u6211\u7684\u6587\u6863\\GitHub\\Sussy-Incremental\\js\\lib\\utils.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:js\\lib\\utils.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\Backup\\\u6211\u7684\u6587\u6863\\GitHub\\Sussy-Incremental\\js\\Save.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:js\\Save.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\Backup\\\u6211\u7684\u6587\u6863\\GitHub\\Sussy-Incremental\\js\\lib\\ExpantaNum.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:js\\lib\\ExpantaNum.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\Backup\\\u6211\u7684\u6587\u6863\\GitHub\\Sussy-Incremental\\css\\anim.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:css\\anim.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\Backup\\\u6211\u7684\u6587\u6863\\GitHub\\Sussy-Incremental\\css\\notify.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:css\\notify.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\Backup\\\u6211\u7684\u6587\u6863\\GitHub\\Sussy-Incremental\\img\\choclate\\choclate_open_orginal.png||{58961B49-13E0-48C0-9258-13CBC4D40279}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:img\\choclate\\choclate_open_orginal.png||{58961B49-13E0-48C0-9258-13CBC4D40279}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\Backup\\\u6211\u7684\u6587\u6863\\GitHub\\Sussy-Incremental\\img\\choclate\\choclate.png||{58961B49-13E0-48C0-9258-13CBC4D40279}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:img\\choclate\\choclate.png||{58961B49-13E0-48C0-9258-13CBC4D40279}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\Backup\\\u6211\u7684\u6587\u6863\\GitHub\\Sussy-Incremental\\css\\fir.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:css\\fir.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\Backup\\\u6211\u7684\u6587\u6863\\GitHub\\Sussy-Incremental\\js\\lib\\jquery.min.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:js\\lib\\jquery.min.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "index.html",
+              "DocumentMoniker": "D:\\Backup\\\u6211\u7684\u6587\u6863\\GitHub\\Sussy-Incremental\\index.html",
+              "RelativeDocumentMoniker": "index.html",
+              "ToolTip": "D:\\Backup\\\u6211\u7684\u6587\u6863\\GitHub\\Sussy-Incremental\\index.html",
+              "RelativeToolTip": "index.html",
+              "ViewState": "AQIAADoAAAAAAAAAAAAcwEMAAAApAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001512|",
+              "WhenOpened": "2024-06-21T11:04:24.827Z",
+              "IsPinned": true,
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "README.md",
+              "DocumentMoniker": "D:\\Backup\\\u6211\u7684\u6587\u6863\\GitHub\\Sussy-Incremental\\README.md",
+              "RelativeDocumentMoniker": "README.md",
+              "ToolTip": "D:\\Backup\\\u6211\u7684\u6587\u6863\\GitHub\\Sussy-Incremental\\README.md",
+              "RelativeToolTip": "README.md",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAsAAAALAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001818|",
+              "WhenOpened": "2024-06-28T08:42:16.243Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Function.js",
+              "DocumentMoniker": "D:\\Backup\\\u6211\u7684\u6587\u6863\\GitHub\\Sussy-Incremental\\js\\Function.js",
+              "RelativeDocumentMoniker": "js\\Function.js",
+              "ToolTip": "D:\\Backup\\\u6211\u7684\u6587\u6863\\GitHub\\Sussy-Incremental\\js\\Function.js",
+              "RelativeToolTip": "js\\Function.js",
+              "ViewState": "AQIAAGoAAAAAAAAAAAA0wJkAAAAhAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
+              "WhenOpened": "2024-06-28T07:47:38.244Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Game.js",
+              "DocumentMoniker": "D:\\Backup\\\u6211\u7684\u6587\u6863\\GitHub\\Sussy-Incremental\\js\\Game.js",
+              "RelativeDocumentMoniker": "js\\Game.js",
+              "ToolTip": "D:\\Backup\\\u6211\u7684\u6587\u6863\\GitHub\\Sussy-Incremental\\js\\Game.js",
+              "RelativeToolTip": "js\\Game.js",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAIAAAAgAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
+              "WhenOpened": "2024-06-21T11:02:08.773Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "utils.js",
+              "DocumentMoniker": "D:\\Backup\\\u6211\u7684\u6587\u6863\\GitHub\\Sussy-Incremental\\js\\lib\\utils.js",
+              "RelativeDocumentMoniker": "js\\lib\\utils.js",
+              "ToolTip": "D:\\Backup\\\u6211\u7684\u6587\u6863\\GitHub\\Sussy-Incremental\\js\\lib\\utils.js",
+              "RelativeToolTip": "js\\lib\\utils.js",
+              "ViewState": "AQIAAD0AAAAAAAAAAAAAwGEAAAAUAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
+              "WhenOpened": "2024-06-28T03:45:16.406Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Const.js",
+              "DocumentMoniker": "D:\\Backup\\\u6211\u7684\u6587\u6863\\GitHub\\Sussy-Incremental\\js\\Const.js",
+              "RelativeDocumentMoniker": "js\\Const.js",
+              "ToolTip": "D:\\Backup\\\u6211\u7684\u6587\u6863\\GitHub\\Sussy-Incremental\\js\\Const.js",
+              "RelativeToolTip": "js\\Const.js",
+              "ViewState": "AQIAAA8AAAAAAAAAAAAAAEEAAAARAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
+              "WhenOpened": "2024-06-28T03:42:47.865Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "ExpantaNum.js",
+              "DocumentMoniker": "D:\\Backup\\\u6211\u7684\u6587\u6863\\GitHub\\Sussy-Incremental\\js\\lib\\ExpantaNum.js",
+              "RelativeDocumentMoniker": "js\\lib\\ExpantaNum.js",
+              "ToolTip": "D:\\Backup\\\u6211\u7684\u6587\u6863\\GitHub\\Sussy-Incremental\\js\\lib\\ExpantaNum.js",
+              "RelativeToolTip": "js\\lib\\ExpantaNum.js",
+              "ViewState": "AQIAAIUGAAAAAAAAAAAowAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
+              "WhenOpened": "2024-06-28T03:42:54.669Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "Save.js",
+              "DocumentMoniker": "D:\\Backup\\\u6211\u7684\u6587\u6863\\GitHub\\Sussy-Incremental\\js\\Save.js",
+              "RelativeDocumentMoniker": "js\\Save.js",
+              "ToolTip": "D:\\Backup\\\u6211\u7684\u6587\u6863\\GitHub\\Sussy-Incremental\\js\\Save.js",
+              "RelativeToolTip": "js\\Save.js",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABIAAAApAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
+              "WhenOpened": "2024-06-28T03:41:20.903Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "choclate_open_orginal.png",
+              "DocumentMoniker": "D:\\Backup\\\u6211\u7684\u6587\u6863\\GitHub\\Sussy-Incremental\\img\\choclate\\choclate_open_orginal.png",
+              "RelativeDocumentMoniker": "img\\choclate\\choclate_open_orginal.png",
+              "ToolTip": "D:\\Backup\\\u6211\u7684\u6587\u6863\\GitHub\\Sussy-Incremental\\img\\choclate\\choclate_open_orginal.png",
+              "RelativeToolTip": "img\\choclate\\choclate_open_orginal.png",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001533|",
+              "WhenOpened": "2024-06-28T03:35:35.667Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{aa2115a1-9712-457b-9047-dbb71ca2cdd2}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "notify.css",
+              "DocumentMoniker": "D:\\Backup\\\u6211\u7684\u6587\u6863\\GitHub\\Sussy-Incremental\\css\\notify.css",
+              "RelativeDocumentMoniker": "css\\notify.css",
+              "ToolTip": "D:\\Backup\\\u6211\u7684\u6587\u6863\\GitHub\\Sussy-Incremental\\css\\notify.css",
+              "RelativeToolTip": "css\\notify.css",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
+              "WhenOpened": "2024-06-21T11:28:13.932Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "anim.css",
+              "DocumentMoniker": "D:\\Backup\\\u6211\u7684\u6587\u6863\\GitHub\\Sussy-Incremental\\css\\anim.css",
+              "RelativeDocumentMoniker": "css\\anim.css",
+              "ToolTip": "D:\\Backup\\\u6211\u7684\u6587\u6863\\GitHub\\Sussy-Incremental\\css\\anim.css",
+              "RelativeToolTip": "css\\anim.css",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
+              "WhenOpened": "2024-06-21T11:28:11.509Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Dom.js",
+              "DocumentMoniker": "D:\\Backup\\\u6211\u7684\u6587\u6863\\GitHub\\Sussy-Incremental\\js\\Dom.js",
+              "RelativeDocumentMoniker": "js\\Dom.js",
+              "ToolTip": "D:\\Backup\\\u6211\u7684\u6587\u6863\\GitHub\\Sussy-Incremental\\js\\Dom.js",
+              "RelativeToolTip": "js\\Dom.js",
+              "ViewState": "AQIAAEIAAAAAAAAAAAAUwFMAAAAFAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
+              "WhenOpened": "2024-06-21T11:16:50.11Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "choclate.png",
+              "DocumentMoniker": "D:\\Backup\\\u6211\u7684\u6587\u6863\\GitHub\\Sussy-Incremental\\img\\choclate\\choclate.png",
+              "RelativeDocumentMoniker": "img\\choclate\\choclate.png",
+              "ToolTip": "D:\\Backup\\\u6211\u7684\u6587\u6863\\GitHub\\Sussy-Incremental\\img\\choclate\\choclate.png",
+              "RelativeToolTip": "img\\choclate\\choclate.png",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001533|",
+              "WhenOpened": "2024-06-28T03:36:09.149Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "fir.css",
+              "DocumentMoniker": "D:\\Backup\\\u6211\u7684\u6587\u6863\\GitHub\\Sussy-Incremental\\css\\fir.css",
+              "RelativeDocumentMoniker": "css\\fir.css",
+              "ToolTip": "D:\\Backup\\\u6211\u7684\u6587\u6863\\GitHub\\Sussy-Incremental\\css\\fir.css",
+              "RelativeToolTip": "css\\fir.css",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABQAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
+              "WhenOpened": "2024-06-21T11:05:18.246Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "jquery.min.js",
+              "DocumentMoniker": "D:\\Backup\\\u6211\u7684\u6587\u6863\\GitHub\\Sussy-Incremental\\js\\lib\\jquery.min.js",
+              "RelativeDocumentMoniker": "js\\lib\\jquery.min.js",
+              "ToolTip": "D:\\Backup\\\u6211\u7684\u6587\u6863\\GitHub\\Sussy-Incremental\\js\\lib\\jquery.min.js",
+              "RelativeToolTip": "js\\lib\\jquery.min.js",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA0AAAAjAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
+              "WhenOpened": "2024-06-21T11:05:54.857Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

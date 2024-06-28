@@ -2,8 +2,8 @@ var EN = ExpantaNum; //为什么不用const? --var颜色更好看
 const changelog = '懒得写'
 const fgame = {
     sus: new EN(10),
-    firstUpdate: 0,
-    lastUpdate: 0,
+    firstUpdate: new Date(),
+    lastUpdate: new Date(),
     automation: {
         unlock: false,
         autobuyer: new EN(0),
@@ -30,7 +30,7 @@ const fgame = {
     },
     u: {
         normal: [
-            [false,false,false,],
+            [false, false, false,],
             [false,false,false,],
         ]
     },
@@ -53,11 +53,11 @@ const dcgame = {
     u: {
         normal: {
             name: [
-                ["把乘数变为1.0001^base","解锁自动购买器","购买生成器无消耗"],
-                ["购买自动生成器无消耗","自动购买器生成器乘数变为1.00000001^base","错误"]
+                ["把乘数变为1.0001^base", "购买生成器无消耗", "解锁自动购买器",],
+                ["购买自动生成器无消耗","自动购买器生成器乘数变为1.00000001^base","错误",]
             ],
             cost: [
-                [new EN("e1e20"),new EN("e1e200"),new EN("10^^1000"),],
+                [new EN("e1e20"),new EN("10^^500"),new EN("10^^3000"),],
                 [new EN(10).arrow(2)(new EN(10).pow(10)),new EN(10).arrow(2)(new EN(10).pow(100)),new EN("NaN"),],
             ]
         },

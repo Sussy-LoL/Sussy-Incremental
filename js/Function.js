@@ -2,7 +2,7 @@ function buyGe(n = 0, type = "normal") {
     if(type == "normal") {
         let x = document.getElementById("g"+(n+1)+"b");
         if(!x.disabled) {
-            if(!hasUp(0,2)) game.sus = game.sus.sub(game.Ge.normal[n][3]);
+            if(!hasUp(0,1)) game.sus = game.sus.sub(game.Ge.normal[n][3]);
             game.Ge.normal[n][0] = game.Ge.normal[n][0].add(new EN(1));
             game.Ge.normal[n][1] = game.Ge.normal[n][1].add(new EN(1));
         }
@@ -17,23 +17,25 @@ function buyGe(n = 0, type = "normal") {
     }
 }
 function buyMaxGe(n = 0, type = "normal") {
-    if(type == "normal") {
-        let x = document.getElementById("g"+(n+1)+"b");
-        if(!x.disabled) {
-            let time = EN.floor(EN.div(game.sus,game.Ge.normal[n][3]));
-            if(!hasUp(0,2)) game.sus = game.sus.sub(EN.mul(game.Ge.normal[n][3],time));
-            game.Ge.normal[n][0] = game.Ge.normal[n][0].add(time);
-            game.Ge.normal[n][1] = game.Ge.normal[n][1].add(time);
-        }
-    }
-    else if(type == "auto") {
-        let y = document.getElementById("g"+(n+1)+"b");
-        if(!y.disabled) {
-            let time = EN.floor(EN.div(game.automation.autobuyer,game.Ge.auto[n][3]));
-            if(!hasUp(1,0)) game.automation.autobuyer = game.automation.autobuyer.sub(EN.mul(game.Ge.auto[n][3],time));
-            game.Ge.auto[n][0] = game.Ge.auto[n][0].add(time);
-            game.Ge.auto[n][1] = game.Ge.auto[n][1].add(time);
-        }
+    switch (type) {
+        case 'normal':
+            let x = document.getElementById("g" + (n + 1) + "b");
+            if (!x.disabled) {
+                let time = EN.floor(EN.div(game.sus, game.Ge.normal[n][3]));
+                if (!hasUp(0, 2)) game.sus = game.sus.sub(EN.mul(game.Ge.normal[n][3], time));
+                game.Ge.normal[n][0] = game.Ge.normal[n][0].add(time);
+                game.Ge.normal[n][1] = game.Ge.normal[n][1].add(time);
+            }
+            break;
+        case 'auto':
+            let y = document.getElementById("g" + (n + 1) + "b");
+            if (!y.disabled) {
+                let time = EN.floor(EN.div(game.automation.autobuyer, game.Ge.auto[n][3]));
+                if (!hasUp(1, 0)) game.automation.autobuyer = game.automation.autobuyer.sub(EN.mul(game.Ge.auto[n][3], time));
+                game.Ge.auto[n][0] = game.Ge.auto[n][0].add(time);
+                game.Ge.auto[n][1] = game.Ge.auto[n][1].add(time);
+            }
+            break;
     }
 }
 function buyMaxAll() {
@@ -118,8 +120,8 @@ function checkAchivment() {
     if(game.sus.gte(0)) addAchivment(0,0);
     if(game.sus.gte("1e5000")) addAchivment(0,1);
     if(hasUp(0,0)) addAchivment(0,2);
-    if(hasUp(0,1)) addAchivment(0,3);
-    if(hasUp(0,2)) addAchivment(0,4);
+    if(hasUp(0,2)) addAchivment(0,3);
+    if(hasUp(0,1)) addAchivment(0,4);
     if(game.automation.autobuyer.gte(1)) addAchivment(0,5);
     if(game.automation.autobuyer.gte(114514)) addAchivment(0,6);
     if(hasUp(1,1)) addAchivment(0,7);
@@ -153,7 +155,7 @@ function AutomationReset() {
             game.Ge.normal = utils.deepClone(fgame.Ge.normal);
             game.sus = new EN(fgame.sus);
             game.u.normal = utils.deepClone(fgame.u.normal);
-            game.u.normal[0][1] = true;
+            game.u.normal[0][2] = true;
             game.automation.autobuyer = game.automation.autobuyer.add(g);
             game.automation.count = game.automation.count.add(1);
             reseting = false;
@@ -183,10 +185,12 @@ function ChoclateReset() {
         if(!game.automation.unlock) game.automation.unlock = true;
         let a = setTimeout(() => {
             //console.log("yee");
-            game.Ge = utils.deepClone(fgame.Ge);
-            game.sus = new EN(fgame.sus);
-            game.automation.autobuyer = new EN(fgame.automation.autobuyer);
-            game.u.normal = utils.deepClone(fgame.u.normal);
+            let ach = utils.deepClone(game.achivment),choc = utils.deepClone(game.choclate);
+            game = utils.deepClone(fgame);
+            game.achivment = utils.deepClone(ach);
+            game.automation.unlock = true;
+            game.choclate.unlock = true;
+            game.choclate = utils.deepClone(choc);
             game.choclate.choc = game.choclate.choc.add(g);
             game.choclate.count = game.choclate.count.add(1);
             //game.u.normal[0][1] = true;

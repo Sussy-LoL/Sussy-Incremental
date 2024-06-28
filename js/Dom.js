@@ -78,7 +78,7 @@ function updateAc() {
 function updateAb() {
     let x = document.getElementById("showa"),y = document.getElementById("abr"),z = document.getElementById("abb"),k = document.getElementById("abs");
     let i = document.getElementById("art"),j = document.getElementById("arb");
-    if(game.sus.gte(new EN("10^^3000")) && !game.automation.unlock && hasUp(0,1)) {
+    if(game.sus.gte(new EN("10^^3000")) && !game.automation.unlock && hasUp(0,2)) {
         NotifyN("恭喜,你可以获得自动购买器了!");
         game.automation.unlock = true;
     }
@@ -101,7 +101,7 @@ function updateAb() {
 function updateC() {
     let x = document.getElementById("showc"),y = document.getElementById("cr"),k = document.getElementById("cs");
     let i = document.getElementById("crt"),j = document.getElementById("crb");
-    if(game.sus.gte(new EN(10).arrow(2)(new EN(10).arrow(2)(1))) && !game.choclate.unlock && hasUp(0,1)) {
+    if (game.sus.gte(new EN(10).arrow(2)(new EN(10).arrow(2)(new EN(10).arrow(2)(1)))) && !game.choclate.unlock && hasUp(0,1)) {
         NotifyN("恭喜,你可以获得巧克力了!");
         game.choclate.unlock = true;
     }

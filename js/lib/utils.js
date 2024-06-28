@@ -80,7 +80,17 @@ const utils = (function() {
     })
     return obj1
   };
-   
+    const mergeType = (o1, o2) => {
+        let obj1 = deepClone(o1), obj2 = deepClone(o2);
+        let isPlain1 = isPlainObject(obj1), isPlain2 = isPlainObject(obj2);
+        if (!isPlain1) return obj2;
+        if (!isPlain2) return obj1;
+        let obj2Arr = getOwnProperties(obj2);
+        obj2Arr.forEach(key => {
+            obj1[key] = mergeType(obj2[key].constructor(obj1[key]),obj2[key]);
+        })
+        return obj1;
+    };
   //===========================================================
    
   // 数据类型检测通用方法
@@ -164,7 +174,8 @@ const utils = (function() {
     deepClone,
     toType,
     isPlainObject,
-    merge,
+      merge,
+    mergeType,
     //GetLength,
   };
 }())
